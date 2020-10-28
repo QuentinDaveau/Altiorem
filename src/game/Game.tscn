@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/ball/Ball.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/scroll_follower/ScrollFollower.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/power_ups_manager/PowerUpsManager.tscn" type="PackedScene" id=3]
+
+[node name="Game" type="Node"]
+
+[node name="PowerUpsManager" parent="." instance=ExtResource( 3 )]
+
+[node name="Ball" parent="." instance=ExtResource( 1 )]
+position = Vector2( 288, 448 )
+
+[node name="Camera2D" type="Camera2D" parent="Ball"]
+offset = Vector2( 0, 64 )
+current = true
+process_mode = 0
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 2.0
+drag_margin_left = 1.0
+drag_margin_top = 0.0
+drag_margin_right = 1.0
+drag_margin_bottom = 1.0
+
+[node name="ScrollFollower" parent="." instance=ExtResource( 2 )]
+_camera_path = NodePath("../Ball/Camera2D")
+[connection signal="section_added" from="ScrollFollower/SectionManager" to="PowerUpsManager" method="_on_SectionManager_section_added"]
+
+[editable path="ScrollFollower"]

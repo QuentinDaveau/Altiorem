@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/power_ups_manager/power_ups_loader.gd" type="Script" id=1]
+[ext_resource path="res://src/power_ups_manager/power_ups_manager.gd" type="Script" id=2]
+
+[node name="PowerUpsManager" type="Node"]
+script = ExtResource( 2 )
+
+[node name="PowerUpsLoader" type="Node" parent="."]
+script = ExtResource( 1 )

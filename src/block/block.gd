@@ -26,4 +26,9 @@ func hit() -> void:
 
 func destroy() -> void:
 	emit_signal("destroyed", _power_proc_chance, position)
+	$CollisionShape2D.set_deferred("disabled", true)
+	$Polygon2D.visible = false
+	$Particles2D.emitting = true
+	$Timer.start(3)
+	yield($Timer, "timeout")
 	queue_free()

@@ -4,7 +4,7 @@
 [ext_resource path="res://src/power_ups_manager/power_up/PowerUp.tscn" type="PackedScene" id=2]
 
 [node name="PowerUp" instance=ExtResource( 2 )]
-_power_up_name = "SuperBall"
+_power_up_name = "SuperJump"
 
 [node name="Sprite" parent="." index="0"]
 scale = Vector2( 0.06, 0.06 )

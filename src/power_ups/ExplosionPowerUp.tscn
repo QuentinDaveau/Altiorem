@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/power_ups_manager/power_up/PowerUp.tscn" type="PackedScene" id=1]
+
+[node name="ExplosionPowerUp" instance=ExtResource( 1 )]
+_power_up_name = "Explosion"

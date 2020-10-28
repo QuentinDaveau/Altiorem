@@ -7,11 +7,11 @@ func _on_SectionManager_section_added(section: Node2D) -> void:
 
 
 func _on_block_destroyed(proc_coeff: float, position: Vector2, section: Node2D) -> void:
-	if _pass_proc_chance(proc_coeff):
+	if _passes_proc_chance(proc_coeff):
 		_add_power_up(position, section)
 
 
-func _pass_proc_chance(proc_coeff: float) -> bool:
+func _passes_proc_chance(proc_coeff: float) -> bool:
 	return randf() < proc_coeff
 
 

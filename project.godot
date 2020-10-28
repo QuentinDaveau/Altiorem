@@ -33,6 +33,14 @@ window/stretch/aspect="keep"
 
 pointing/emulate_touch_from_mouse=true
 
+[layer_names]
+
+2d_physics/layer_1="Game"
+2d_physics/layer_2="Block"
+2d_physics/layer_3="Ball"
+2d_physics/layer_4="Powerup"
+2d_physics/layer_5="Platform"
+
 [physics]
 
 2d/default_gravity=1568

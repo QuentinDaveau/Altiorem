@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends RigidBody2D
 
 signal destroyed(proc_coeff, position)
 
@@ -25,7 +25,7 @@ func hit() -> void:
 
 
 func destroy() -> void:
-	emit_signal("destroyed", _power_proc_chance, position)
+	emit_signal("destroyed", _power_proc_chance, global_position)
 	$CollisionShape2D.set_deferred("disabled", true)
 	$Polygon2D.visible = false
 	$Particles2D.emitting = true

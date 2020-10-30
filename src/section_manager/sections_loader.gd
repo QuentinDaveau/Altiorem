@@ -2,7 +2,7 @@ extends Node
 
 signal loading_done()
 
-const SECTIONS_FOLDER: String = "res://src/sections"
+const SECTIONS_FOLDER: String = "res://src/section_manager/section/sections/"
 
 var _loaded_sections: Array = []
 var _last_loaded_section: int = -1

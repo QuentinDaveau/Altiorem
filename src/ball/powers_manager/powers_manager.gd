@@ -16,7 +16,6 @@ func _ready() -> void:
 
 func activate(powerup_name: String) -> void:
 	if _powers.has(powerup_name):
-		print("activating power:", powerup_name)
 		var power = _powers[powerup_name]
 		power.activate()
 		if not _powers_stack.has(power):

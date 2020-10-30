@@ -6,14 +6,14 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 26.0
 
-[sub_resource type="Gradient" id=3]
+[sub_resource type="Gradient" id=2]
 offsets = PoolRealArray( 0.0962963, 0.214815, 1 )
 colors = PoolColorArray( 0.501961, 0.501961, 0.501961, 0, 0.486275, 0.486275, 0.486275, 0.752941, 0.45098, 0.45098, 0.45098, 0 )
 
-[sub_resource type="GradientTexture" id=4]
-gradient = SubResource( 3 )
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
 
-[sub_resource type="ParticlesMaterial" id=2]
+[sub_resource type="ParticlesMaterial" id=4]
 emission_shape = 1
 emission_sphere_radius = 16.0
 flag_disable_z = true
@@ -25,11 +25,11 @@ angular_velocity_random = 1.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 40.0
-color_ramp = SubResource( 4 )
+color_ramp = SubResource( 3 )
 
 [node name="SuperJump" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-AIMED_VELOCITY = 3000
+AIMED_VELOCITY = 2500
 
 [node name="Area2D" type="Area2D" parent="." index="0"]
 monitoring = false
@@ -43,6 +43,7 @@ shape = SubResource( 1 )
 emitting = false
 amount = 60
 lifetime = 3.0
+visibility_rect = Rect2( -150, -150, 300, 300 )
 local_coords = false
-process_material = SubResource( 2 )
+process_material = SubResource( 4 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

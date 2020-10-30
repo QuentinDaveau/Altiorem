@@ -1,6 +1,9 @@
 extends Node2D
 
+signal activated()
+
 export(String) var _power_up_name: String = ""
+export(bool) var _is_global: bool = false
 
 
 func _ready() -> void:
@@ -10,6 +13,14 @@ func _ready() -> void:
 	yield($Tween, "tween_all_completed")
 	$Area2D.set_deferred("monitoring", true)
 	$LifeParticle.emitting = true
+
+
+func is_global() -> bool:
+	return _is_global
+
+
+func get_name() -> String:
+	return _power_up_name
 
 
 func _disappear() -> void:
@@ -39,9 +50,10 @@ func _explode() -> void:
 
 
 func _on_Area2D_body_entered(body: Node) -> void:
-	if body.has_method("activate_power_up"):
-		body.activate_power_up(_power_up_name)
-		_explode()
+#	if body.has_method("activate_power_up"):
+#		body.activate_power_up(_power_up_name)
+	emit_signal("activated")
+	_explode()
 
 
 func _on_Timer_timeout() -> void:

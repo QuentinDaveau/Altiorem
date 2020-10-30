@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/ball/ball.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/unicorn.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://src/ball/powers_manager/power/super_jump/SuperJump.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/ball/powers_manager/power/normal/Normal.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/ball/powers_manager/power/explosion/Explosion.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/ball/powers_manager/power/breaker/Breaker.tscn" type="PackedScene" id=8]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 1.0
@@ -35,7 +36,9 @@ tracks/0/keys = {
 "values": [ Vector2( 0.05, 0.05 ), Vector2( 0.065, 0.065 ), Vector2( 0.042, 0.042 ), Vector2( 0.05, 0.05 ) ]
 }
 
-[node name="Ball" type="RigidBody2D"]
+[node name="Ball" type="RigidBody2D" groups=[
+"ball",
+]]
 collision_layer = 4
 collision_mask = 27
 physics_material_override = SubResource( 1 )
@@ -49,7 +52,7 @@ script = ExtResource( 1 )
 shape = SubResource( 2 )
 
 [node name="Trail" type="Line2D" parent="."]
-width = 50.0
+width = 40.0
 width_curve = SubResource( 3 )
 default_color = Color( 1, 1, 1, 0.494118 )
 script = ExtResource( 3 )
@@ -64,8 +67,10 @@ anims/bounce = SubResource( 4 )
 [node name="PowersManager" type="Node2D" parent="."]
 script = ExtResource( 4 )
 
-[node name="Explosion" parent="PowersManager" instance=ExtResource( 7 )]
-
 [node name="Normal" parent="PowersManager" instance=ExtResource( 6 )]
 
+[node name="Explosion" parent="PowersManager" instance=ExtResource( 7 )]
+
 [node name="SuperJump" parent="PowersManager" instance=ExtResource( 5 )]
+
+[node name="Breaker" parent="PowersManager" instance=ExtResource( 8 )]

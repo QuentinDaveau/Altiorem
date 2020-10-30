@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 
-func activate_power_up(power_name: String) -> void:
+func activate_power(power_name: String) -> void:
 	$PowersManager.activate(power_name)
 
 

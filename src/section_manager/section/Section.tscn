@@ -14,4 +14,4 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Blocks" type="Node2D" parent="."]
+[node name="Obstacles" type="Node2D" parent="."]

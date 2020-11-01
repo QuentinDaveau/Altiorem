@@ -1,31 +1,37 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/ball/Ball.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/scroll_follower/ScrollFollower.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/power_ups_manager/PowerUpsManager.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/game/game.gd" type="Script" id=4]
+[ext_resource path="res://src/game/camera/Camera.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/section_manager/SectionManager.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/background/BackGround.tscn" type="PackedScene" id=7]
 
 [node name="Game" type="Node"]
+script = ExtResource( 4 )
+
+[node name="Background" parent="." instance=ExtResource( 7 )]
 
 [node name="PowerUpsManager" parent="." instance=ExtResource( 3 )]
+
+[node name="SectionManager" parent="." instance=ExtResource( 6 )]
 
 [node name="Ball" parent="." instance=ExtResource( 1 )]
 position = Vector2( 288, 448 )
 
-[node name="Camera2D" type="Camera2D" parent="Ball"]
-offset = Vector2( 0, 64 )
-current = true
-process_mode = 0
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-smoothing_enabled = true
-smoothing_speed = 3.0
-drag_margin_left = 1.0
-drag_margin_top = 0.0
-drag_margin_right = 1.0
-drag_margin_bottom = 1.0
+[node name="Camera" parent="Ball" instance=ExtResource( 5 )]
 
 [node name="ScrollFollower" parent="." instance=ExtResource( 2 )]
-_camera_path = NodePath("../Ball/Camera2D")
-[connection signal="section_added" from="ScrollFollower/SectionManager" to="PowerUpsManager" method="_on_SectionManager_section_added"]
+
+[node name="UI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="section_added" from="SectionManager" to="PowerUpsManager" method="_on_SectionManager_section_added"]
+[connection signal="ball_fell" from="ScrollFollower/FallDetector" to="." method="_on_FallDetector_ball_fell"]
 
 [editable path="ScrollFollower"]

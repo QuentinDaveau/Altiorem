@@ -1,10 +1,9 @@
 extends Node2D
 
 
-export(NodePath) var _camera_path: NodePath
+func _ready() -> void:
+	CameraManager.observe_camera_position(self, "_on_camera_went_up")
 
-onready var _target_camera = get_node(_camera_path)
 
-
-func _physics_process(delta: float) -> void:
-	global_position = _target_camera.get_camera_screen_center()
+func _on_camera_went_up(new_height) -> void:
+	global_position.y = new_height

@@ -15,7 +15,7 @@ func process_state(state: Physics2DDirectBodyState) -> Physics2DDirectBodyState:
 	if state.get_contact_count() >= 1:
 		var collider := state.get_contact_collider_object(0)
 		if collider.get_name() == "Platform":
-			_hit_platform(state, collider)
+			state = _hit_platform(state, collider)
 		if collider.is_in_group("obstacle"):
 			_hit_block(collider)
 	return state

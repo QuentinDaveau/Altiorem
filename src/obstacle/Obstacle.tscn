@@ -28,6 +28,7 @@ script = ExtResource( 1 )
 _starting_color = Color( 1, 1, 1, 1 )
 _break_color = Color( 1, 0, 0, 1 )
 _starting_health = 2
+_camera_shake_amount = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 

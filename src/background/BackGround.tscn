@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/background/background.gd" type="Script" id=1]
+[ext_resource path="res://assets/art_resources/dawn_gradient.tres" type="Gradient" id=3]
+
+[node name="Background" type="Node"]
+script = ExtResource( 1 )
+_gradient = ExtResource( 3 )
+
+[node name="Panels" type="Node" parent="."]

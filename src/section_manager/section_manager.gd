@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 signal section_added(section)
 
@@ -11,14 +11,15 @@ var _current_step: int = 0
 
 
 func _ready() -> void:
+	CameraManager.observe_camera_position(self, "_on_camera_went_up")
 	if not $SectionsLoader.is_ready():
 		yield($SectionsLoader, "loading_done")
-	for i in range(PRESPAWNED_SECTIONS):
+	for _i in range(PRESPAWNED_SECTIONS):
 		_instance_new_section()
 
 
-func _physics_process(delta: float) -> void:
-	if - global_position.y >= SECTION_HEIGHT * (_current_step - PRESPAWNED_SECTIONS):
+func _on_camera_went_up(new_height) -> void:
+	if - new_height >= SECTION_HEIGHT * (_current_step - PRESPAWNED_SECTIONS):
 		_instance_new_section()
 
 

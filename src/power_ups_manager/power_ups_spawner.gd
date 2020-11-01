@@ -10,15 +10,14 @@ func add_blocks_in_section(section: Node2D) -> void:
 
 func _on_block_destroyed(proc_coeff: float, position: Vector2, section: Node2D) -> void:
 	if _passes_proc_chance(proc_coeff):
-		_add_power_up(position, section)
+		_add_power_up(position)
 
 
 func _passes_proc_chance(proc_coeff: float) -> bool:
 	return randf() < proc_coeff
 
 
-func _add_power_up(position: Vector2, parent: Node2D) -> void:
+func _add_power_up(position: Vector2) -> void:
 	var power = $PowerUpsLoader.generate_random_power()
 	power.position = position
-#	parent.call_deferred("add_child", power)
 	emit_signal("spawned_power_up", power)

@@ -6,6 +6,7 @@ export(Color) var _starting_color: Color
 export(Color) var _break_color: Color
 export(int) var _starting_health
 export(float, 0, 1) var _power_proc_chance: float = 0.2
+export(float) var _camera_shake_amount: float = 1
 
 
 onready var _current_health: int = _starting_health
@@ -26,6 +27,7 @@ func hit() -> void:
 
 func destroy() -> void:
 	emit_signal("destroyed", _power_proc_chance, global_position)
+	CameraManager.add_shake(_camera_shake_amount)
 	$CollisionShape2D.set_deferred("disabled", true)
 	$Polygon2D.visible = false
 	$Particles2D.emitting = true

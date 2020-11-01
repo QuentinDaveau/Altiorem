@@ -19,6 +19,10 @@ config/name="Roundabounce"
 run/main_scene="res://src/game/Game.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+CameraManager="*res://src/autoload/camera_manager.gd"
+
 [display]
 
 window/size/width=576

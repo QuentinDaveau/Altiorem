@@ -18,5 +18,5 @@ script = ExtResource( 1 )
 script = ExtResource( 4 )
 
 [node name="PowerUps" type="Node" parent="."]
-[connection signal="spawned_power_up" from="PowerUpsSpawner" to="." method="_on_PowerUpsSpawner_spawned_power_up"]
 [connection signal="spawned_power_up" from="PowerUpsSpawner" to="PowerUpsActivator" method="_on_PowerUpsSpawner_spawned_power_up"]
+[connection signal="spawned_power_up" from="PowerUpsSpawner" to="." method="_on_PowerUpsSpawner_spawned_power_up"]

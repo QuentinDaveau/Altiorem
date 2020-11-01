@@ -1,0 +1,92 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://src/background/panel/panel.gd" type="Script" id=1]
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id=1]
+
+[sub_resource type="VisualShaderNodeInput" id=2]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeColorUniform" id=3]
+uniform_name = "BottomColor"
+
+[sub_resource type="VisualShaderNodeColorUniform" id=4]
+uniform_name = "TopColor"
+
+[sub_resource type="VisualShaderNodeVectorScalarMix" id=5]
+
+[sub_resource type="VisualShader" id=6]
+code = "shader_type canvas_item;
+uniform vec4 BottomColor : hint_color;
+uniform vec4 TopColor : hint_color;
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// ColorUniform:4
+	vec3 n_out4p0 = BottomColor.rgb;
+	float n_out4p1 = BottomColor.a;
+
+// ColorUniform:5
+	vec3 n_out5p0 = TopColor.rgb;
+	float n_out5p1 = TopColor.a;
+
+// Input:3
+	vec3 n_out3p0 = vec3(UV, 0.0);
+
+// VectorDecompose:2
+	float n_out2p0 = n_out3p0.x;
+	float n_out2p1 = n_out3p0.y;
+	float n_out2p2 = n_out3p0.z;
+
+// VectorScalarMix:6
+	vec3 n_out6p0 = mix(n_out4p0, n_out5p0, n_out2p1);
+
+// Output:0
+	COLOR.rgb = n_out6p0;
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+custom_defines = ""
+graph_offset = Vector2( -448.5, 57 )
+mode = 1
+flags/light_only = false
+nodes/fragment/0/position = Vector2( 300, 60 )
+nodes/fragment/2/node = SubResource( 1 )
+nodes/fragment/2/position = Vector2( 0, 240 )
+nodes/fragment/3/node = SubResource( 2 )
+nodes/fragment/3/position = Vector2( -180, 240 )
+nodes/fragment/4/node = SubResource( 3 )
+nodes/fragment/4/position = Vector2( -180, 120 )
+nodes/fragment/5/node = SubResource( 4 )
+nodes/fragment/5/position = Vector2( -180, 0 )
+nodes/fragment/6/node = SubResource( 5 )
+nodes/fragment/6/position = Vector2( 62.5, 62 )
+nodes/fragment/connections = PoolIntArray( 3, 0, 2, 0, 2, 1, 6, 2, 6, 0, 0, 0, 5, 0, 6, 1, 4, 0, 6, 0 )
+
+[sub_resource type="ShaderMaterial" id=7]
+resource_local_to_scene = true
+shader = SubResource( 6 )
+shader_param/BottomColor = null
+shader_param/TopColor = null
+
+[node name="Panel" type="ColorRect"]
+material = SubResource( 7 )
+margin_left = -64.0
+margin_right = 640.0
+margin_bottom = 1024.0
+mouse_filter = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

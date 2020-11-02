@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/background/panel/panel.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/single_sprite.png" type="Texture" id=2]
 
 [sub_resource type="VisualShaderNodeVectorDecompose" id=1]
 
@@ -58,7 +59,6 @@ void light() {
 }
 "
 custom_defines = ""
-graph_offset = Vector2( -448.5, 57 )
 mode = 1
 flags/light_only = false
 nodes/fragment/0/position = Vector2( 300, 60 )
@@ -80,13 +80,10 @@ shader = SubResource( 6 )
 shader_param/BottomColor = null
 shader_param/TopColor = null
 
-[node name="Panel" type="ColorRect"]
+[node name="Panel" type="Sprite"]
 material = SubResource( 7 )
-margin_left = -64.0
-margin_right = 640.0
-margin_bottom = 1024.0
-mouse_filter = 2
+position = Vector2( -64, 0 )
+scale = Vector2( 704, 512 )
+texture = ExtResource( 2 )
+centered = false
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}

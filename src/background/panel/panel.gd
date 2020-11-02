@@ -1,4 +1,4 @@
-extends ColorRect
+extends Sprite
 
 
 func set_gradient(top_color: Color, bottom_color: Color) -> void:

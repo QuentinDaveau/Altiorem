@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/ball/ball.gd" type="Script" id=1]
-[ext_resource path="res://assets/sprites/unicorn.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/ball_clear.png" type="Texture" id=2]
 [ext_resource path="res://src/ball/trail.gd" type="Script" id=3]
 [ext_resource path="res://src/ball/powers_manager/powers_manager.gd" type="Script" id=4]
 [ext_resource path="res://src/ball/powers_manager/power/super_jump/SuperJump.tscn" type="PackedScene" id=5]
@@ -10,7 +10,7 @@
 [ext_resource path="res://src/ball/powers_manager/power/breaker/Breaker.tscn" type="PackedScene" id=8]
 
 [sub_resource type="PhysicsMaterial" id=1]
-bounce = 0.6
+bounce = 0.8
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 26.0181
@@ -31,9 +31,9 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.02, 0.12, 0.2 ),
-"transitions": PoolRealArray( 1, 0.535887, 1, 0.420448 ),
+"transitions": PoolRealArray( 0.287175, 0.707107, 0.31864, 0.420448 ),
 "update": 0,
-"values": [ Vector2( 0.05, 0.05 ), Vector2( 0.065, 0.065 ), Vector2( 0.042, 0.042 ), Vector2( 0.05, 0.05 ) ]
+"values": [ Vector2( 0.82, 0.82 ), Vector2( 1.2, 1.2 ), Vector2( 0.6, 0.6 ), Vector2( 0.82, 0.82 ) ]
 }
 
 [node name="Ball" type="RigidBody2D" groups=[
@@ -59,7 +59,7 @@ default_color = Color( 1, 1, 1, 0.494118 )
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.05, 0.05 )
+scale = Vector2( 0.82, 0.82 )
 texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

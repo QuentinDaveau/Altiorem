@@ -6,6 +6,7 @@
 extents = Vector2( 32, 32 )
 
 [node name="Block" instance=ExtResource( 1 )]
+_break_color = Color( 0.054902, 0.254902, 0.219608, 1 )
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource( 1 )

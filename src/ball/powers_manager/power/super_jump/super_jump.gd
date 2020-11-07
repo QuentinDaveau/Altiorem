@@ -6,7 +6,7 @@ var _bounced: bool = false
 
 func process_state(state: Physics2DDirectBodyState) -> Physics2DDirectBodyState:
 	if _bounced:
-		if state.linear_velocity.y > 250:
+		if state.linear_velocity.y > -250:
 			_deactivate()
 	return .process_state(state)
 

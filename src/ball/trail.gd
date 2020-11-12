@@ -3,7 +3,7 @@ extends Line2D
 const MAX_LENGTH: int = 5
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	global_position = Vector2.ZERO
 	global_rotation = 0.0
 	add_point(owner.global_position)

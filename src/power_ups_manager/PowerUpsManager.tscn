@@ -5,7 +5,9 @@
 [ext_resource path="res://src/power_ups_manager/power_ups_spawner.gd" type="Script" id=3]
 [ext_resource path="res://src/power_ups_manager/power_ups_activator.gd" type="Script" id=4]
 
-[node name="PowerUpsManager" type="Node"]
+[node name="PowerUpsManager" type="Node" groups=[
+"obstacle_break_listener",
+]]
 script = ExtResource( 2 )
 
 [node name="PowerUpsSpawner" type="Node" parent="."]
@@ -18,5 +20,5 @@ script = ExtResource( 1 )
 script = ExtResource( 4 )
 
 [node name="PowerUps" type="Node" parent="."]
-[connection signal="spawned_power_up" from="PowerUpsSpawner" to="PowerUpsActivator" method="_on_PowerUpsSpawner_spawned_power_up"]
 [connection signal="spawned_power_up" from="PowerUpsSpawner" to="." method="_on_PowerUpsSpawner_spawned_power_up"]
+[connection signal="spawned_power_up" from="PowerUpsSpawner" to="PowerUpsActivator" method="_on_PowerUpsSpawner_spawned_power_up"]

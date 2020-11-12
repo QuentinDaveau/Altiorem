@@ -49,9 +49,7 @@ func _explode() -> void:
 
 
 
-func _on_Area2D_body_entered(body: Node) -> void:
-#	if body.has_method("activate_power_up"):
-#		body.activate_power_up(_power_up_name)
+func _on_Area2D_body_entered(_body: Node) -> void:
 	emit_signal("activated")
 	_explode()
 

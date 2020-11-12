@@ -8,10 +8,8 @@ func activate() -> void:
 func _hit_block(block: PhysicsBody2D) -> void:
 	for b in $Area2D.get_overlapping_bodies():
 		b.hit()
-	$Sprite.visible = true
-	$Timer.start()
-	yield($Timer, "timeout")
-	$Sprite.visible = false
+	CameraManager.add_shake(5)
+	$AnimationPlayer.play("explode")
 
 
 func _deactivate() -> void:

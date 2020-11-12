@@ -1,6 +1,10 @@
 extends Node
 
 
+func add_target(obstacle: PhysicsBody2D) -> void:
+	$PowerUpsSpawner.add_obstacle(obstacle)
+
+
 func _on_PowerUpsSpawner_spawned_power_up(power_up) -> void:
 	call_deferred("add_child", power_up)
 

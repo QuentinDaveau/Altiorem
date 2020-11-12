@@ -11,7 +11,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventScreenDrag:
+	if event is InputEventScreenDrag or event is InputEventScreenTouch:
 		var _screen_position = get_global_transform_with_canvas().get_origin()
 		_aimed_rotation = _screen_position.angle_to_point(event.position) + (PI/2.0)
 		if abs(_aimed_rotation) > 0.26:

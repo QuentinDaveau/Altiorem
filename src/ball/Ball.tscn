@@ -55,11 +55,11 @@ shape = SubResource( 2 )
 [node name="Trail" type="Line2D" parent="."]
 width = 40.0
 width_curve = SubResource( 3 )
-default_color = Color( 1, 1, 1, 0.494118 )
+default_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.82, 0.82 )
+scale = Vector2( 0.825129, 0.825129 )
 texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

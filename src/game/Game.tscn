@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/ball/Ball.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/scroll_follower/ScrollFollower.tscn" type="PackedScene" id=2]
@@ -7,9 +7,16 @@
 [ext_resource path="res://src/game/camera/Camera.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/section_manager/SectionManager.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/background/BackGround.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/start_manager/StartManager.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/score_manager/ScoreManager.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/game/game_ui/GameUI.tscn" type="PackedScene" id=10]
 
 [node name="Game" type="Node"]
 script = ExtResource( 4 )
+
+[node name="ScoreManager" parent="." instance=ExtResource( 9 )]
+
+[node name="StartManager" parent="." instance=ExtResource( 8 )]
 
 [node name="Background" parent="." instance=ExtResource( 7 )]
 
@@ -24,14 +31,8 @@ position = Vector2( 288, 448 )
 
 [node name="ScrollFollower" parent="." instance=ExtResource( 2 )]
 
-[node name="UI" type="Control" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-[connection signal="section_added" from="SectionManager" to="PowerUpsManager" method="_on_SectionManager_section_added"]
+[node name="GameUI" parent="." instance=ExtResource( 10 )]
+[connection signal="score_updated" from="ScoreManager" to="GameUI" method="_on_ScoreManager_score_updated"]
 [connection signal="ball_fell" from="ScrollFollower/FallDetector" to="." method="_on_FallDetector_ball_fell"]
 
 [editable path="ScrollFollower"]

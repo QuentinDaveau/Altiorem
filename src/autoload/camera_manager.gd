@@ -12,4 +12,3 @@ func observe_camera_position(node: Node, function: String, distance: bool = fals
 		_camera.connect("went_up", node, function)
 	else:
 		_camera.connect("went_up_distance", node, function)
-

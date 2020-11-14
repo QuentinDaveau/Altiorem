@@ -5,7 +5,7 @@ signal destroyed()
 
 export(Color) var _break_color: Color
 export(int) var _starting_health
-export(float) var _camera_shake_amount: float = 1
+export(float) var _camera_shake_amount: float = 8
 export(float, 0, 1) var _power_proc_chance: float = 0.2
 export(int, 0, 100) var _score_value: int = 10
 

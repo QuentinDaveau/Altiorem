@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/fonts/LG_90_shadow.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/game/game_ui/pause_panel/restart_timer.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "count_down"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:bbcode_text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ "[center]3[/center]", "[center]2[/center]", "[center]1[/center]" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("RichTextLabel:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.9, 1, 1.1, 1.2, 1.9, 2, 2.1, 2.2, 2.9, 3 ),
+"transitions": PoolRealArray( 1, 1, 0.5, 2, 0.5, 1, 0.5, 2, 0.5, 1, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 1.2, 1.2 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0, 0 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0, 0 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0, 0 ) ]
+}
+
+[node name="RestartTimer" type="CenterContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 238.0
+margin_top = 462.0
+margin_right = 338.0
+margin_bottom = 562.0
+rect_min_size = Vector2( 100, 100 )
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 50, 37.825 )
+mouse_filter = 2
+custom_fonts/normal_font = ExtResource( 1 )
+custom_colors/font_color_shadow = Color( 0.627451, 0.627451, 0.627451, 1 )
+custom_constants/shadow_offset_x = 3
+custom_constants/shadow_offset_y = 3
+bbcode_enabled = true
+bbcode_text = "[center]1[/center]"
+meta_underlined = false
+text = "1"
+scroll_active = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/count_down = SubResource( 1 )

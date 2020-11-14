@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/game/game_ui/game_over_panel/score_gauge/score_line/ScoreLine.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/fonts/LG_50_shadow.tres" type="DynamicFont" id=2]
+[ext_resource path="res://src/game/game_ui/game_over_panel/score_gauge/score_line/disappear.tres" type="Animation" id=3]
+
+[node name="ScoreLineLeft" instance=ExtResource( 1 )]
+
+[node name="Control" parent="." index="0"]
+rect_pivot_offset = Vector2( 25, 0 )
+
+[node name="HBoxContainer" parent="Control" index="0"]
+margin_left = -495.0
+margin_right = 25.0
+margin_bottom = 15.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/HBoxContainer" index="0"]
+margin_right = 410.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 400, 50 )
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.58
+custom_fonts/normal_font = ExtResource( 2 )
+custom_colors/font_color_shadow = Color( 0.627451, 0.627451, 0.627451, 1 )
+custom_constants/shadow_offset_x = 3
+custom_constants/shadow_offset_y = 3
+bbcode_enabled = true
+bbcode_text = "[right]0 [/right]"
+meta_underlined = false
+text = "0 "
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/HBoxContainer" index="1"]
+margin_left = 430.0
+margin_right = 520.0
+margin_bottom = 50.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Control/HBoxContainer/CenterContainer" index="0"]
+margin_top = 15.0
+margin_right = 90.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 90, 20 )
+mouse_filter = 2
+
+[node name="AnimationPlayer" parent="." index="1"]
+anims/disappear = ExtResource( 3 )

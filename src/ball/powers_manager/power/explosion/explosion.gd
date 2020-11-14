@@ -8,7 +8,7 @@ func activate() -> void:
 func _hit_block(block: PhysicsBody2D) -> void:
 	for b in $Area2D.get_overlapping_bodies():
 		b.hit()
-	CameraManager.add_shake(5)
+	CameraManager.add_shake(4)
 	$AnimationPlayer.play("explode")
 
 

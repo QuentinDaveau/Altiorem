@@ -11,7 +11,7 @@ extents = Vector2( 160, 24 )
 mode = 0
 mass = 10.0
 _starting_health = 4
-_camera_shake_amount = 20.0
+_camera_shake_amount = 12.0
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource( 1 )

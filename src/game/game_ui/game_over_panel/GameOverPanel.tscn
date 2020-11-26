@@ -134,6 +134,30 @@ tracks/9/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/10/type = "value"
+tracks/10/path = NodePath(".:mouse_filter")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("MarginContainer:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 6.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
 
 [node name="GameOverPanel" type="ColorRect"]
 visible = false
@@ -254,6 +278,7 @@ __meta__ = {
 margin_bottom = -6.10352e-05
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+visible = false
 modulate = Color( 1, 1, 1, 0 )
 anchor_top = 0.883
 anchor_right = 1.0
@@ -274,7 +299,7 @@ margin_bottom = 100.0
 rect_min_size = Vector2( 0, 100 )
 mouse_filter = 2
 
-[node name="TextureButton" type="TextureButton" parent="MarginContainer/HBoxContainer"]
+[node name="HomeButton" type="TextureButton" parent="MarginContainer/HBoxContainer"]
 margin_right = 286.0
 margin_bottom = 100.0
 size_flags_horizontal = 3
@@ -283,7 +308,7 @@ texture_normal = ExtResource( 8 )
 expand = true
 stretch_mode = 5
 
-[node name="TextureButton2" type="TextureButton" parent="MarginContainer/HBoxContainer"]
+[node name="RestartButton" type="TextureButton" parent="MarginContainer/HBoxContainer"]
 margin_left = 290.0
 margin_right = 576.0
 margin_bottom = 100.0
@@ -295,3 +320,5 @@ stretch_mode = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/display_game_over = SubResource( 1 )
+[connection signal="pressed" from="MarginContainer/HBoxContainer/HomeButton" to="." method="_on_HomeButton_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/RestartButton" to="." method="_on_RestartButton_pressed"]

@@ -10,6 +10,6 @@ func _on_ScoreManager_score_updated(new_score: int, break_score_added: int) -> v
 	$UIRoot/MarginContainer/HBoxContainer/VBoxContainer/ScoreLabel.bbcode_text = "[right]" + String(new_score) + "[/right] "
 
 
-func _on_PauseButton_meta_clicked(meta) -> void:
+func _on_PauseButton_meta_clicked(_meta) -> void:
 	get_tree().paused = true
 	$PausePanel.appear()

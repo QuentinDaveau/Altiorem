@@ -14,6 +14,9 @@
 [ext_resource path="res://assets/art_resources/shine_shader.tres" type="Material" id=12]
 
 [node name="Background" type="Node"]
+__meta__ = {
+"_edit_vertical_guides_": [ -168.0, -424.0 ]
+}
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_base_offset = Vector2( 0, 512 )
@@ -27,8 +30,8 @@ _gradient = ExtResource( 3 )
 
 [node name="Mountains" type="Sprite" parent="ParallaxBackground/FarLayer"]
 self_modulate = Color( 0.901961, 0.643137, 0.541176, 1 )
-position = Vector2( 272, 184 )
-scale = Vector2( 0.65, 0.65 )
+position = Vector2( 288, 168 )
+scale = Vector2( 0.7, 0.7 )
 z_index = 1
 texture = ExtResource( 1 )
 
@@ -109,8 +112,8 @@ motion_scale = Vector2( 1, 0.2 )
 
 [node name="Hills" type="Sprite" parent="ParallaxBackground/MiddleLayer"]
 self_modulate = Color( 0.7, 0.499333, 0.42, 1 )
-position = Vector2( 272, 184 )
-scale = Vector2( 0.65, 0.65 )
+position = Vector2( 288, 182.4 )
+scale = Vector2( 0.7, 0.7 )
 z_index = 1
 texture = ExtResource( 6 )
 
@@ -145,8 +148,8 @@ motion_scale = Vector2( 1, 0.8 )
 
 [node name="Trees" type="Sprite" parent="ParallaxBackground/CloseLayer"]
 self_modulate = Color( 0.5, 0.356667, 0.3, 1 )
-position = Vector2( 312, 184 )
-scale = Vector2( 0.65, 0.65 )
+position = Vector2( 304, 176 )
+scale = Vector2( 0.7, 0.7 )
 z_index = 1
 texture = ExtResource( 5 )
 
@@ -157,7 +160,7 @@ scale = Vector2( 0.65, 0.65 )
 z_index = 1
 texture = ExtResource( 8 )
 region_enabled = true
-region_rect = Rect2( -698773, 0, 1024, 1024 )
+region_rect = Rect2( -706227, 0, 1024, 1024 )
 script = ExtResource( 9 )
 _scroll_speed = -33
 
@@ -169,7 +172,7 @@ z_index = 1
 texture = ExtResource( 8 )
 flip_h = true
 region_enabled = true
-region_rect = Rect2( 272046, 0, 1024, 1024 )
+region_rect = Rect2( 274966, 0, 1024, 1024 )
 script = ExtResource( 9 )
 _scroll_speed = 13
 
@@ -181,7 +184,7 @@ z_index = 1
 texture = ExtResource( 8 )
 flip_v = true
 region_enabled = true
-region_rect = Rect2( 226685, 0, 1024, 1024 )
+region_rect = Rect2( 229174, 0, 1024, 1024 )
 script = ExtResource( 9 )
 _scroll_speed = 11
 
@@ -192,7 +195,7 @@ scale = Vector2( 0.65, 0.65 )
 z_index = 1
 texture = ExtResource( 8 )
 region_enabled = true
-region_rect = Rect2( 167207, 0, 1024, 1024 )
+region_rect = Rect2( 169068, 0, 1024, 1024 )
 script = ExtResource( 9 )
 _scroll_speed = 8
 
@@ -204,7 +207,7 @@ z_index = 1
 texture = ExtResource( 8 )
 flip_h = true
 region_enabled = true
-region_rect = Rect2( -482555, 0, 1024, 1024 )
+region_rect = Rect2( -487592, 0, 1024, 1024 )
 script = ExtResource( 9 )
 _scroll_speed = -23
 
@@ -216,6 +219,6 @@ z_index = 1
 texture = ExtResource( 8 )
 flip_h = true
 region_enabled = true
-region_rect = Rect2( 329921, 0, 1024, 1024 )
+region_rect = Rect2( 333643, 0, 1024, 1024 )
 script = ExtResource( 9 )
 _scroll_speed = 16

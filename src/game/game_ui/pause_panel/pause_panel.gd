@@ -19,3 +19,11 @@ func _on_ResumeButton_pressed() -> void:
 	$RestartTimer.start_delay()
 	yield($RestartTimer, "timeout")
 	get_tree().paused = false
+
+
+func _on_RestartButton_pressed() -> void:
+	SceneManager.reload_game()
+
+
+func _on_QuitButton_pressed() -> void:
+	SceneManager.load_menu()

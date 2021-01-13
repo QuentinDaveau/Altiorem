@@ -4,21 +4,21 @@
 [ext_resource path="res://assets/UI/screen_transition_mask.png" type="Texture" id=2]
 [ext_resource path="res://src/autoload/scene_manager/scene_manager.gd" type="Script" id=3]
 
-[sub_resource type="VisualShaderNodeTextureUniform" id=3]
+[sub_resource type="VisualShaderNodeTextureUniform" id=1]
 uniform_name = "TextureUniform"
 texture_type = 1
 
-[sub_resource type="VisualShaderNodeInput" id=4]
+[sub_resource type="VisualShaderNodeInput" id=2]
 input_name = "screen_uv"
 
-[sub_resource type="VisualShaderNodeVectorDecompose" id=5]
+[sub_resource type="VisualShaderNodeVectorDecompose" id=3]
 
-[sub_resource type="VisualShaderNodeVectorCompose" id=6]
+[sub_resource type="VisualShaderNodeVectorCompose" id=4]
 
-[sub_resource type="VisualShaderNodeTexture" id=7]
+[sub_resource type="VisualShaderNodeTexture" id=5]
 source = 2
 
-[sub_resource type="VisualShader" id=8]
+[sub_resource type="VisualShader" id=6]
 code = "shader_type canvas_item;
 uniform sampler2D TextureUniform : hint_albedo;
 
@@ -71,32 +71,29 @@ void light() {
 
 }
 "
-custom_defines = ""
 graph_offset = Vector2( -415.435, 175 )
 mode = 1
 flags/light_only = false
-nodes/fragment/2/node = SubResource( 3 )
+nodes/fragment/2/node = SubResource( 1 )
 nodes/fragment/2/position = Vector2( -470.685, 146 )
-nodes/fragment/3/node = SubResource( 4 )
+nodes/fragment/3/node = SubResource( 2 )
 nodes/fragment/3/position = Vector2( -860, 180 )
-nodes/fragment/4/node = SubResource( 5 )
+nodes/fragment/4/node = SubResource( 3 )
 nodes/fragment/4/position = Vector2( -880, 260 )
-nodes/fragment/5/node = SubResource( 6 )
+nodes/fragment/5/node = SubResource( 4 )
 nodes/fragment/5/position = Vector2( -660, 260 )
-nodes/fragment/6/node = SubResource( 7 )
+nodes/fragment/6/node = SubResource( 5 )
 nodes/fragment/6/position = Vector2( -460, 360 )
 nodes/fragment/connections = PoolIntArray( 2, 0, 0, 0, 3, 0, 4, 0, 4, 0, 5, 1, 4, 1, 5, 0, 5, 0, 2, 0, 6, 1, 0, 1 )
 
-[sub_resource type="GradientTexture" id=9]
+[sub_resource type="GradientTexture" id=7]
 gradient = ExtResource( 1 )
 
-[sub_resource type="ShaderMaterial" id=10]
-shader = SubResource( 8 )
-shader_param/TextureUniform = SubResource( 9 )
+[sub_resource type="ShaderMaterial" id=8]
+shader = SubResource( 6 )
+shader_param/TextureUniform = SubResource( 7 )
 
-[sub_resource type="Animation" id=1]
-resource_name = "transition_enter"
-length = 0.9
+[sub_resource type="Animation" id=9]
 tracks/0/type = "value"
 tracks/0/path = NodePath("TextureRect:rect_position:y")
 tracks/0/interp = 1
@@ -110,8 +107,7 @@ tracks/0/keys = {
 "values": [ 1030.0, 900.0, 930.0, -64.0 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "transition_exit"
+[sub_resource type="Animation" id=10]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("TextureRect:rect_position:y")
@@ -132,15 +128,15 @@ layer = 3
 script = ExtResource( 3 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
-material = SubResource( 10 )
-margin_top = -1200.0
+material = SubResource( 8 )
+margin_top = 1030.0
 margin_right = 576.0
-margin_bottom = -47.9968
+margin_bottom = 2182.0
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/transition_enter = SubResource( 1 )
-anims/transition_exit = SubResource( 2 )
+anims/transition_enter = SubResource( 9 )
+anims/transition_exit = SubResource( 10 )

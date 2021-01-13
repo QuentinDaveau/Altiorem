@@ -160,7 +160,7 @@ scale = Vector2( 0.65, 0.65 )
 z_index = 1
 texture = ExtResource( 8 )
 region_enabled = true
-region_rect = Rect2( -706227, 0, 1024, 1024 )
+region_rect = Rect2( -706445, 0, 1024, 1024 )
 script = ExtResource( 9 )
 _scroll_speed = -33
 
@@ -172,7 +172,7 @@ z_index = 1
 texture = ExtResource( 8 )
 flip_h = true
 region_enabled = true
-region_rect = Rect2( 274966, 0, 1024, 1024 )
+region_rect = Rect2( 275051, 0, 1024, 1024 )
 script = ExtResource( 9 )
 _scroll_speed = 13
 
@@ -184,7 +184,7 @@ z_index = 1
 texture = ExtResource( 8 )
 flip_v = true
 region_enabled = true
-region_rect = Rect2( 229174, 0, 1024, 1024 )
+region_rect = Rect2( 229247, 0, 1024, 1024 )
 script = ExtResource( 9 )
 _scroll_speed = 11
 
@@ -195,7 +195,7 @@ scale = Vector2( 0.65, 0.65 )
 z_index = 1
 texture = ExtResource( 8 )
 region_enabled = true
-region_rect = Rect2( 169068, 0, 1024, 1024 )
+region_rect = Rect2( 169122, 0, 1024, 1024 )
 script = ExtResource( 9 )
 _scroll_speed = 8
 
@@ -207,7 +207,7 @@ z_index = 1
 texture = ExtResource( 8 )
 flip_h = true
 region_enabled = true
-region_rect = Rect2( -487592, 0, 1024, 1024 )
+region_rect = Rect2( -487738, 0, 1024, 1024 )
 script = ExtResource( 9 )
 _scroll_speed = -23
 
@@ -219,6 +219,6 @@ z_index = 1
 texture = ExtResource( 8 )
 flip_h = true
 region_enabled = true
-region_rect = Rect2( 333643, 0, 1024, 1024 )
+region_rect = Rect2( 333752, 0, 1024, 1024 )
 script = ExtResource( 9 )
 _scroll_speed = 16

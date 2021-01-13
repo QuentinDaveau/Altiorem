@@ -8,7 +8,7 @@ const LAYER_SCALE: float = 0.1
 
 export(Gradient) var _gradient: Gradient
 
-onready var _panel = load("res://src/background/panel/Panel.tscn")
+var _panel = preload("res://src/background/panel/Panel.tscn")
 
 var _instanciated_panels: Array = []
 var _current_step: int = -1

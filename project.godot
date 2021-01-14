@@ -15,8 +15,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Roundabounce"
-run/main_scene="res://src/game/Game.tscn"
+config/name="Altiorem"
+run/main_scene="res://src/main_menu/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -54,7 +54,6 @@ pointing/emulate_touch_from_mouse=true
 [rendering]
 
 quality/driver/driver_name="GLES2"
-quality/2d/use_pixel_snap=true
 vram_compression/import_etc=true
 gles2/compatibility/disable_half_float=true
 environment/default_environment="res://default_env.tres"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/fonts/LG_70_shadow.tres" type="DynamicFont" id=1]
 [ext_resource path="res://src/game/game_ui/game_over_panel/score_gauge/ScoreGauge.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/fonts/LG_90_shadow.tres" type="DynamicFont" id=6]
 [ext_resource path="res://assets/UI/restart.png" type="Texture" id=7]
 [ext_resource path="res://assets/UI/home.png" type="Texture" id=8]
+[ext_resource path="res://src/ui/ButtonEffect.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Animation" id=1]
 resource_name = "display_game_over"
@@ -163,7 +164,6 @@ tracks/11/keys = {
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-mouse_filter = 2
 color = Color( 0, 0, 0, 0 )
 script = ExtResource( 3 )
 __meta__ = {
@@ -299,23 +299,23 @@ margin_bottom = 100.0
 rect_min_size = Vector2( 0, 100 )
 mouse_filter = 2
 
-[node name="HomeButton" type="TextureButton" parent="MarginContainer/HBoxContainer"]
+[node name="HomeButton" parent="MarginContainer/HBoxContainer" instance=ExtResource( 9 )]
 margin_right = 286.0
 margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = ExtResource( 8 )
-expand = true
 stretch_mode = 5
 
-[node name="RestartButton" type="TextureButton" parent="MarginContainer/HBoxContainer"]
+[node name="RestartButton" parent="MarginContainer/HBoxContainer" instance=ExtResource( 9 )]
 margin_left = 290.0
 margin_right = 576.0
 margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = ExtResource( 7 )
-expand = true
 stretch_mode = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

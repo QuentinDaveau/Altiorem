@@ -2,8 +2,7 @@ extends CanvasLayer
 
 
 func load_menu() -> void:
-	return
-	_load_scene("res://src/menu/MainMenu.tscn")
+	_load_scene("res://src/main_menu/MainMenu.tscn")
 
 
 func load_game() ->void:

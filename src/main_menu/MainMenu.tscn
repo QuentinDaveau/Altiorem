@@ -1,0 +1,106 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://src/background/BackGround.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/game/camera/Camera.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/main_menu/random_mover/RandomMover.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/UI/title.png" type="Texture" id=4]
+[ext_resource path="res://src/ui/ButtonEffect.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/UI/menu_play.png" type="Texture" id=6]
+[ext_resource path="res://src/main_menu/main_menu.gd" type="Script" id=7]
+
+[node name="MainMenu" type="Node"]
+script = ExtResource( 7 )
+
+[node name="Background" parent="." instance=ExtResource( 1 )]
+
+[node name="CameraMover" type="Position2D" parent="."]
+position = Vector2( 288, 448 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="RandomMover" parent="CameraMover" instance=ExtResource( 3 )]
+
+[node name="Camera2D" parent="CameraMover/RandomMover" instance=ExtResource( 2 )]
+zoom = Vector2( 0.7, 0.7 )
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
+
+[node name="TitlePosition" type="Position2D" parent="CameraMover/RandomMover/Camera2D"]
+position = Vector2( -200, -216 )
+
+[node name="Mover" parent="CameraMover/RandomMover/Camera2D/TitlePosition" instance=ExtResource( 3 )]
+_max_dist = 6
+_travel_time = 4.0
+_time_variation = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="CameraMover/RandomMover/Camera2D/TitlePosition/Mover"]
+margin_right = 400.0
+margin_bottom = 95.0
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayPosition" type="Position2D" parent="CameraMover/RandomMover/Camera2D"]
+position = Vector2( 0, 98 )
+
+[node name="Mover" parent="CameraMover/RandomMover/Camera2D/PlayPosition" instance=ExtResource( 3 )]
+_max_dist = 6
+_travel_time = 4.0
+_time_variation = 1.0
+
+[node name="PlayButton" parent="CameraMover/RandomMover/Camera2D/PlayPosition/Mover" instance=ExtResource( 5 )]
+margin_left = -64.0
+margin_top = -64.0
+margin_right = 64.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 64, 64 )
+texture_normal = ExtResource( 6 )
+
+[node name="SettingsPosition" type="Position2D" parent="CameraMover/RandomMover/Camera2D"]
+position = Vector2( -128, 228 )
+
+[node name="Mover" parent="CameraMover/RandomMover/Camera2D/SettingsPosition" instance=ExtResource( 3 )]
+_max_dist = 6
+_travel_time = 3.0
+_time_variation = 0.5
+
+[node name="SettingsButton" parent="CameraMover/RandomMover/Camera2D/SettingsPosition/Mover" instance=ExtResource( 5 )]
+margin_left = -40.0
+margin_top = -42.0
+margin_bottom = 38.0
+rect_pivot_offset = Vector2( 0, 0 )
+
+[node name="ScorePosition" type="Position2D" parent="CameraMover/RandomMover/Camera2D"]
+position = Vector2( 0, 260 )
+
+[node name="Mover" parent="CameraMover/RandomMover/Camera2D/ScorePosition" instance=ExtResource( 3 )]
+_max_dist = 6
+_travel_time = 3.0
+_time_variation = 0.5
+
+[node name="ScoreButton" parent="CameraMover/RandomMover/Camera2D/ScorePosition/Mover" instance=ExtResource( 5 )]
+margin_left = -40.0
+margin_top = -42.0
+margin_bottom = 38.0
+rect_pivot_offset = Vector2( 0, 0 )
+
+[node name="ShopPosition" type="Position2D" parent="CameraMover/RandomMover/Camera2D"]
+position = Vector2( 128, 228 )
+
+[node name="Mover" parent="CameraMover/RandomMover/Camera2D/ShopPosition" instance=ExtResource( 3 )]
+_max_dist = 6
+_travel_time = 3.0
+_time_variation = 0.5
+
+[node name="ShopButton" parent="CameraMover/RandomMover/Camera2D/ShopPosition/Mover" instance=ExtResource( 5 )]
+margin_left = -40.0
+margin_top = -42.0
+margin_bottom = 38.0
+rect_pivot_offset = Vector2( 0, 0 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[connection signal="pressed" from="CameraMover/RandomMover/Camera2D/PlayPosition/Mover/PlayButton" to="." method="_on_PlayButton_pressed"]

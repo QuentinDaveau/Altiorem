@@ -21,6 +21,10 @@ func _on_ResumeButton_pressed() -> void:
 	get_tree().paused = false
 
 
+func _exit_tree() -> void:
+	get_tree().paused = false
+
+
 func _on_RestartButton_pressed() -> void:
 	SceneManager.reload_game()
 

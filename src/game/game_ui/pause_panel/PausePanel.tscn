@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/UI/restart.png" type="Texture" id=1]
 [ext_resource path="res://assets/fonts/LG_90_shadow.tres" type="DynamicFont" id=2]
@@ -7,11 +7,12 @@
 [ext_resource path="res://src/game/game_ui/pause_panel/RestartTimer.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/UI/home.png" type="Texture" id=6]
 [ext_resource path="res://assets/UI/play.png" type="Texture" id=7]
+[ext_resource path="res://src/ui/ButtonEffect.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Pasted Animation"
 length = 0.4
-step = 0.05
+step = 0.025
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color:a")
 tracks/0/interp = 1
@@ -25,79 +26,79 @@ tracks/0/keys = {
 "values": [ 0.0, 0.6 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("CenterContainer/VBoxContainer/HBoxContainer/RestartButton:rect_scale")
+tracks/1/path = NodePath("CenterContainer/VBoxContainer/PauseText:rect_scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.25, 0.35, 0.4 ),
-"transitions": PoolRealArray( 1, 0.5, 2, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("CenterContainer/VBoxContainer/HBoxContainer/ResumeButton:rect_scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.2, 0.3, 0.35 ),
-"transitions": PoolRealArray( 1, 0.5, 2, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("CenterContainer/VBoxContainer/HBoxContainer/QuitButton:rect_scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.15, 0.25, 0.3 ),
-"transitions": PoolRealArray( 1, 0.5, 2, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("CenterContainer/VBoxContainer/PauseText:rect_scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
 "times": PoolRealArray( 0, 0.1, 0.3, 0.4 ),
 "transitions": PoolRealArray( 1, 0.5, 2, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:mouse_filter")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CenterContainer/VBoxContainer/PauseText:mouse_filter")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CenterContainer/VBoxContainer/HBoxContainer/QuitButton:rect_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.025, 0.225, 0.325 ),
+"transitions": PoolRealArray( 1, 0.5, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
+}
 tracks/5/type = "value"
-tracks/5/path = NodePath(".:mouse_filter")
+tracks/5/path = NodePath("CenterContainer/VBoxContainer/HBoxContainer/RestartButton:rect_scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
+"times": PoolRealArray( 0, 0.05, 0.25, 0.35 ),
+"transitions": PoolRealArray( 1, 0.5, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 0, 0 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("CenterContainer/VBoxContainer/PauseText:mouse_filter")
+tracks/6/path = NodePath("CenterContainer/VBoxContainer/HBoxContainer/ResumeButton:rect_scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
+"times": PoolRealArray( 0, 0.075, 0.275, 0.375 ),
+"transitions": PoolRealArray( 1, 0.5, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("CenterContainer/VBoxContainer/HBoxContainer/RestartButton:mouse_filter")
+tracks/7/path = NodePath("CenterContainer/VBoxContainer/HBoxContainer/QuitButton:mouse_filter")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -121,7 +122,7 @@ tracks/8/keys = {
 "values": [ 0 ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("CenterContainer/VBoxContainer/HBoxContainer/QuitButton:mouse_filter")
+tracks/9/path = NodePath("CenterContainer/VBoxContainer/HBoxContainer/RestartButton:mouse_filter")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -136,7 +137,7 @@ tracks/9/keys = {
 [sub_resource type="Animation" id=2]
 resource_name = "disappear"
 length = 0.15
-step = 0.05
+step = 0.025
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color:a")
 tracks/0/interp = 1
@@ -150,7 +151,7 @@ tracks/0/keys = {
 "values": [ 0.5, 0.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("CenterContainer/VBoxContainer/HBoxContainer/RestartButton:rect_scale")
+tracks/1/path = NodePath("CenterContainer/VBoxContainer/PauseText:rect_scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -162,31 +163,31 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 0, 0 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("CenterContainer/VBoxContainer/HBoxContainer/ResumeButton:rect_scale")
+tracks/2/path = NodePath(".:mouse_filter")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.05, 0.15 ),
-"transitions": PoolRealArray( 1, 2, 0.5 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 0, 0 ) ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("CenterContainer/VBoxContainer/HBoxContainer/QuitButton:rect_scale")
+tracks/3/path = NodePath("CenterContainer/VBoxContainer/PauseText:mouse_filter")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.05, 0.15 ),
-"transitions": PoolRealArray( 1, 2, 0.5 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 0, 0 ) ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("CenterContainer/VBoxContainer/PauseText:rect_scale")
+tracks/4/path = NodePath("CenterContainer/VBoxContainer/HBoxContainer/RestartButton:rect_scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -198,31 +199,31 @@ tracks/4/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 0, 0 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath(".:mouse_filter")
+tracks/5/path = NodePath("CenterContainer/VBoxContainer/HBoxContainer/ResumeButton:rect_scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 2 ]
+"times": PoolRealArray( 0, 0.05, 0.15 ),
+"transitions": PoolRealArray( 1, 2, 0.5 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 0, 0 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("CenterContainer/VBoxContainer/PauseText:mouse_filter")
+tracks/6/path = NodePath("CenterContainer/VBoxContainer/HBoxContainer/QuitButton:rect_scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 2 ]
+"times": PoolRealArray( 0, 0.05, 0.15 ),
+"transitions": PoolRealArray( 1, 2, 0.5 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 0, 0 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("CenterContainer/VBoxContainer/HBoxContainer/RestartButton:mouse_filter")
+tracks/7/path = NodePath("CenterContainer/VBoxContainer/HBoxContainer/QuitButton:mouse_filter")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -246,7 +247,7 @@ tracks/8/keys = {
 "values": [ 2 ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("CenterContainer/VBoxContainer/HBoxContainer/QuitButton:mouse_filter")
+tracks/9/path = NodePath("CenterContainer/VBoxContainer/HBoxContainer/RestartButton:mouse_filter")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -264,7 +265,7 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-color = Color( 0, 0, 0, 0 )
+color = Color( 0, 0, 0, 0.5 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -291,7 +292,6 @@ alignment = 1
 margin_right = 450.0
 margin_bottom = 145.0
 rect_min_size = Vector2( 50, 0 )
-rect_scale = Vector2( 1e-05, 1e-05 )
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -316,44 +316,36 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 80
 
-[node name="QuitButton" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="QuitButton" parent="CenterContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 8 )]
 margin_right = 82.0
 margin_bottom = 251.0
-rect_scale = Vector2( 1e-05, 1e-05 )
-mouse_filter = 2
+rect_pivot_offset = Vector2( 0, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = ExtResource( 6 )
-expand = true
 stretch_mode = 5
-script = ExtResource( 4 )
 
-[node name="ResumeButton" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="ResumeButton" parent="CenterContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 8 )]
 margin_left = 162.0
 margin_right = 286.0
 margin_bottom = 251.0
-rect_scale = Vector2( 1e-05, 1e-05 )
-mouse_filter = 2
+rect_pivot_offset = Vector2( 0, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.5
 texture_normal = ExtResource( 7 )
-expand = true
 stretch_mode = 5
-script = ExtResource( 4 )
+_disable_animation = true
 
-[node name="RestartButton" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="RestartButton" parent="CenterContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 8 )]
 margin_left = 366.0
 margin_right = 450.0
 margin_bottom = 251.0
-rect_scale = Vector2( 1e-05, 1e-05 )
-mouse_filter = 2
+rect_pivot_offset = Vector2( 0, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = ExtResource( 1 )
-expand = true
 stretch_mode = 5
-script = ExtResource( 4 )
 
 [node name="RestartTimer" parent="." instance=ExtResource( 5 )]
 

@@ -13,42 +13,37 @@
 [ext_resource path="res://assets/background/moon.png" type="Texture" id=11]
 [ext_resource path="res://assets/art_resources/shine_shader.tres" type="Material" id=12]
 
-[node name="Background" type="Node"]
-__meta__ = {
-"_edit_vertical_guides_": [ -168.0, -424.0 ]
-}
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+[node name="BackGround" type="ParallaxBackground"]
 scroll_base_offset = Vector2( 0, 512 )
 
-[node name="FarLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="FarLayer" type="ParallaxLayer" parent="."]
 z_index = 1
 motion_scale = Vector2( 1, 0.1 )
 
-[node name="PanelManager" parent="ParallaxBackground/FarLayer" instance=ExtResource( 4 )]
+[node name="PanelManager" parent="FarLayer" instance=ExtResource( 4 )]
 _gradient = ExtResource( 3 )
 
-[node name="Mountains" type="Sprite" parent="ParallaxBackground/FarLayer"]
+[node name="Mountains" type="Sprite" parent="FarLayer"]
 self_modulate = Color( 0.901961, 0.643137, 0.541176, 1 )
 position = Vector2( 288, 168 )
 scale = Vector2( 0.7, 0.7 )
 z_index = 1
 texture = ExtResource( 1 )
 
-[node name="Sun" type="Sprite" parent="ParallaxBackground/FarLayer"]
+[node name="Sun" type="Sprite" parent="FarLayer"]
 self_modulate = Color( 1, 0.868, 0.56, 1 )
 position = Vector2( 288, -1832 )
 scale = Vector2( 0.65, 0.65 )
 z_index = 1
 texture = ExtResource( 2 )
 
-[node name="Clouds" type="Sprite" parent="ParallaxBackground/FarLayer"]
+[node name="Clouds" type="Sprite" parent="FarLayer"]
 self_modulate = Color( 0.960784, 0.827451, 0.596078, 1 )
 position = Vector2( 288, -1464 )
 z_index = 1
 texture = ExtResource( 7 )
 
-[node name="Stars" type="Sprite" parent="ParallaxBackground/FarLayer"]
+[node name="Stars" type="Sprite" parent="FarLayer"]
 self_modulate = Color( 1, 1, 1, 0.862745 )
 material = ExtResource( 12 )
 position = Vector2( 288, -6912 )
@@ -56,7 +51,7 @@ scale = Vector2( 0.65, 0.65 )
 z_index = 1
 texture = ExtResource( 10 )
 
-[node name="Stars6" type="Sprite" parent="ParallaxBackground/FarLayer"]
+[node name="Stars6" type="Sprite" parent="FarLayer"]
 self_modulate = Color( 1, 1, 1, 0.862745 )
 material = ExtResource( 12 )
 position = Vector2( 288, -7576 )
@@ -65,7 +60,7 @@ z_index = 1
 texture = ExtResource( 10 )
 flip_h = true
 
-[node name="Stars2" type="Sprite" parent="ParallaxBackground/FarLayer"]
+[node name="Stars2" type="Sprite" parent="FarLayer"]
 self_modulate = Color( 1, 1, 1, 0.705882 )
 material = ExtResource( 12 )
 position = Vector2( 288, -6264 )
@@ -74,7 +69,7 @@ z_index = 1
 texture = ExtResource( 10 )
 flip_h = true
 
-[node name="Stars3" type="Sprite" parent="ParallaxBackground/FarLayer"]
+[node name="Stars3" type="Sprite" parent="FarLayer"]
 self_modulate = Color( 1, 1, 1, 0.470588 )
 material = ExtResource( 12 )
 position = Vector2( 288, -5600 )
@@ -83,7 +78,7 @@ z_index = 1
 texture = ExtResource( 10 )
 flip_v = true
 
-[node name="Stars4" type="Sprite" parent="ParallaxBackground/FarLayer"]
+[node name="Stars4" type="Sprite" parent="FarLayer"]
 self_modulate = Color( 1, 1, 1, 0.313726 )
 material = ExtResource( 12 )
 position = Vector2( 288, -4904 )
@@ -91,7 +86,7 @@ scale = Vector2( 0.65, 0.65 )
 z_index = 1
 texture = ExtResource( 10 )
 
-[node name="Stars5" type="Sprite" parent="ParallaxBackground/FarLayer"]
+[node name="Stars5" type="Sprite" parent="FarLayer"]
 self_modulate = Color( 1, 1, 1, 0.235294 )
 material = ExtResource( 12 )
 position = Vector2( 288, -4232 )
@@ -99,25 +94,25 @@ scale = Vector2( 0.65, 0.65 )
 z_index = 1
 texture = ExtResource( 10 )
 
-[node name="Moon" type="Sprite" parent="ParallaxBackground/FarLayer"]
+[node name="Moon" type="Sprite" parent="FarLayer"]
 self_modulate = Color( 0.64, 0.728, 0.8, 1 )
 position = Vector2( 352, -6912 )
 scale = Vector2( 0.4, 0.4 )
 z_index = 1
 texture = ExtResource( 11 )
 
-[node name="MiddleLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="MiddleLayer" type="ParallaxLayer" parent="."]
 z_index = 1
 motion_scale = Vector2( 1, 0.2 )
 
-[node name="Hills" type="Sprite" parent="ParallaxBackground/MiddleLayer"]
+[node name="Hills" type="Sprite" parent="MiddleLayer"]
 self_modulate = Color( 0.7, 0.499333, 0.42, 1 )
 position = Vector2( 288, 182.4 )
 scale = Vector2( 0.7, 0.7 )
 z_index = 1
 texture = ExtResource( 6 )
 
-[node name="Clouds" type="Sprite" parent="ParallaxBackground/MiddleLayer"]
+[node name="Clouds" type="Sprite" parent="MiddleLayer"]
 self_modulate = Color( 0.8, 0.690196, 0.494118, 1 )
 position = Vector2( 288, -3072 )
 scale = Vector2( 0.8, 0.8 )
@@ -125,7 +120,7 @@ z_index = 1
 texture = ExtResource( 7 )
 flip_h = true
 
-[node name="Clouds2" type="Sprite" parent="ParallaxBackground/MiddleLayer"]
+[node name="Clouds2" type="Sprite" parent="MiddleLayer"]
 self_modulate = Color( 0.6, 0.5164, 0.372, 1 )
 position = Vector2( 288, -2488 )
 scale = Vector2( 0.8, 0.8 )
@@ -133,7 +128,7 @@ z_index = 1
 texture = ExtResource( 7 )
 flip_h = true
 
-[node name="Clouds3" type="Sprite" parent="ParallaxBackground/MiddleLayer"]
+[node name="Clouds3" type="Sprite" parent="MiddleLayer"]
 self_modulate = Color( 0.5, 0.430333, 0.31, 1 )
 position = Vector2( 288, -2632 )
 scale = Vector2( 0.8, 0.8 )
@@ -142,29 +137,29 @@ texture = ExtResource( 7 )
 flip_h = true
 flip_v = true
 
-[node name="CloseLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="CloseLayer" type="ParallaxLayer" parent="."]
 z_index = 1
 motion_scale = Vector2( 1, 0.8 )
 
-[node name="Trees" type="Sprite" parent="ParallaxBackground/CloseLayer"]
+[node name="Trees" type="Sprite" parent="CloseLayer"]
 self_modulate = Color( 0.5, 0.356667, 0.3, 1 )
 position = Vector2( 304, 176 )
 scale = Vector2( 0.7, 0.7 )
 z_index = 1
 texture = ExtResource( 5 )
 
-[node name="Clouds2" type="Sprite" parent="ParallaxBackground/CloseLayer"]
+[node name="Clouds2" type="Sprite" parent="CloseLayer"]
 self_modulate = Color( 0.7, 0.602467, 0.434, 1 )
 position = Vector2( 288, -10048 )
 scale = Vector2( 0.65, 0.65 )
 z_index = 1
 texture = ExtResource( 8 )
 region_enabled = true
-region_rect = Rect2( -715682, 0, 1024, 1024 )
+region_rect = Rect2( -719943, 0, 1024, 1024 )
 script = ExtResource( 9 )
 _scroll_speed = -33
 
-[node name="Clouds4" type="Sprite" parent="ParallaxBackground/CloseLayer"]
+[node name="Clouds4" type="Sprite" parent="CloseLayer"]
 self_modulate = Color( 0.8, 0.688533, 0.496, 1 )
 position = Vector2( 288, -10736 )
 scale = Vector2( 0.65, 0.65 )
@@ -172,11 +167,11 @@ z_index = 1
 texture = ExtResource( 8 )
 flip_h = true
 region_enabled = true
-region_rect = Rect2( 278754, 0, 1024, 1024 )
+region_rect = Rect2( 280486, 0, 1024, 1024 )
 script = ExtResource( 9 )
 _scroll_speed = 13
 
-[node name="Clouds9" type="Sprite" parent="ParallaxBackground/CloseLayer"]
+[node name="Clouds9" type="Sprite" parent="CloseLayer"]
 self_modulate = Color( 1, 0.860667, 0.62, 1 )
 position = Vector2( 288, -12776 )
 scale = Vector2( 0.65, 0.65 )
@@ -184,22 +179,22 @@ z_index = 1
 texture = ExtResource( 8 )
 flip_v = true
 region_enabled = true
-region_rect = Rect2( 232371, 0, 1024, 1024 )
+region_rect = Rect2( 233753, 0, 1024, 1024 )
 script = ExtResource( 9 )
 _scroll_speed = 11
 
-[node name="Clouds10" type="Sprite" parent="ParallaxBackground/CloseLayer"]
+[node name="Clouds10" type="Sprite" parent="CloseLayer"]
 self_modulate = Color( 0.9, 0.7746, 0.558, 1 )
 position = Vector2( 288, -11443.2 )
 scale = Vector2( 0.65, 0.65 )
 z_index = 1
 texture = ExtResource( 8 )
 region_enabled = true
-region_rect = Rect2( 171422, 0, 1024, 1024 )
+region_rect = Rect2( 172454, 0, 1024, 1024 )
 script = ExtResource( 9 )
 _scroll_speed = 8
 
-[node name="Clouds11" type="Sprite" parent="ParallaxBackground/CloseLayer"]
+[node name="Clouds11" type="Sprite" parent="CloseLayer"]
 self_modulate = Color( 0.9, 0.7746, 0.558, 1 )
 position = Vector2( 288, -12104 )
 scale = Vector2( 0.65, 0.65 )
@@ -207,11 +202,11 @@ z_index = 1
 texture = ExtResource( 8 )
 flip_h = true
 region_enabled = true
-region_rect = Rect2( -494232, 0, 1024, 1024 )
+region_rect = Rect2( -497195, 0, 1024, 1024 )
 script = ExtResource( 9 )
 _scroll_speed = -23
 
-[node name="Clouds" type="Sprite" parent="ParallaxBackground/CloseLayer"]
+[node name="Clouds" type="Sprite" parent="CloseLayer"]
 self_modulate = Color( 0.6, 0.5164, 0.372, 1 )
 position = Vector2( 288, -9360 )
 scale = Vector2( 0.65, 0.65 )
@@ -219,6 +214,6 @@ z_index = 1
 texture = ExtResource( 8 )
 flip_h = true
 region_enabled = true
-region_rect = Rect2( 338353, 0, 1024, 1024 )
+region_rect = Rect2( 340417, 0, 1024, 1024 )
 script = ExtResource( 9 )
 _scroll_speed = 16

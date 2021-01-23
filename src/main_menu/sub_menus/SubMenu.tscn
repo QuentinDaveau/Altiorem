@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/fonts/LG_50_shadow.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/main_menu/sub_menus/sub_menu.gd" type="Script" id=2]
+[ext_resource path="res://src/ui/ButtonEffect.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/UI/restart.png" type="Texture" id=4]
+
+[node name="SubMenu" type="Position2D"]
+position = Vector2( 0, -1024 )
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 576.0
+margin_bottom = 1024.0
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 88.0
+margin_top = 232.0
+margin_right = 488.0
+margin_bottom = 512.0
+custom_fonts/normal_font = ExtResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.509804 )
+custom_constants/shadow_offset_x = 3
+custom_constants/shadow_offset_y = 3
+bbcode_enabled = true
+bbcode_text = "[center]This is a sub-menu (WIP)[/center]"
+text = "This is a sub-menu (WIP)"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" parent="." instance=ExtResource( 3 )]
+margin_left = 16.0
+margin_top = 880.0
+margin_right = 144.0
+margin_bottom = 1008.0
+texture_normal = ExtResource( 4 )
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

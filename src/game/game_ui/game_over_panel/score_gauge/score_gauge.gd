@@ -5,9 +5,9 @@ export(float, 0, 1) var _spawn_rate: float = 0 setget set_spawn_rate
 export(float, 0, 1) var _score_rate: float = 0 setget set_score_rate
 
 # test values
-var _best: int = 856
-var _mean: int = 520
-var _score: int = 1520
+var _best: int
+var _mean: int
+var _score: int
 
 var _init_done: bool = false
 
@@ -16,10 +16,14 @@ func _ready() -> void:
 	_init_done = true
 
 
-func set_scores(best: int, mean: int, score: int) -> void:
+func set_scores(score: int, mean: int, best: int) -> void:
 	_best = best
 	_mean = mean
 	_score = score
+	if _best == 0:
+		$Best.hide()
+	if _mean == best:
+		$Mean.hide()
 
 
 func play_score_counting() -> void:

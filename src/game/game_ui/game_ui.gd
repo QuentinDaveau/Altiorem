@@ -1,8 +1,9 @@
 extends CanvasLayer
 
 
-func play_game_over() -> void:
-	$GameOverPanel.play_game_over()
+func play_game_over(results: Dictionary) -> void:
+	$GameOverPanel.play_game_over(results["score"], results["mean"],\
+			results["best"], results["points"])
 
 
 func disable_pause_button() -> void:

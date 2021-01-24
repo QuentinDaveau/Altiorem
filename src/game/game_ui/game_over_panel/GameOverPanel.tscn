@@ -1,10 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/fonts/LG_70_shadow.tres" type="DynamicFont" id=1]
 [ext_resource path="res://src/game/game_ui/game_over_panel/score_gauge/ScoreGauge.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/game/game_ui/game_over_panel/game_over_panel.gd" type="Script" id=3]
-[ext_resource path="res://src/game/game_ui/game_over_panel/score_label.gd" type="Script" id=4]
-[ext_resource path="res://src/game/game_ui/game_over_panel/points_label.gd" type="Script" id=5]
 [ext_resource path="res://assets/fonts/LG_90_shadow.tres" type="DynamicFont" id=6]
 [ext_resource path="res://assets/UI/restart.png" type="Texture" id=7]
 [ext_resource path="res://assets/UI/home.png" type="Texture" id=8]
@@ -208,7 +206,6 @@ bbcode_text = "[center]15626[/center]"
 meta_underlined = false
 text = "15626"
 scroll_active = false
-script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false,
 "_editor_description_": ""
@@ -232,7 +229,6 @@ bbcode_text = "[center]1562[/center]"
 meta_underlined = false
 text = "1562"
 scroll_active = false
-script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false,
 "_editor_description_": ""

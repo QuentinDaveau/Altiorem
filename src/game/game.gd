@@ -7,7 +7,7 @@ func _on_FallDetector_ball_fell(ball: RigidBody2D) -> void:
 	$GameUI.disable_pause_button()
 	CameraManager.add_shake(100)
 	yield(get_tree().create_timer(0.75), "timeout")
-	$GameUI.play_game_over()
+	$GameUI.play_game_over($ScoreManager.fix_score())
 
 
 func _start_game() -> void:

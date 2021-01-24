@@ -25,8 +25,7 @@ func disappear() -> void:
 
 func set_amount(amount: float, max_value: int) -> void:
 	_amount = amount
-	var p = MAX_HEIGHT * min(amount, max_value) / max_value
-	
+	var p = MAX_HEIGHT * min(amount, max_value) / max_value if max_value > 0 else MAX_HEIGHT * min(amount, 1)
 	points[1] = Vector2.UP * p
 	$Control.rect_position.y = - p
 	_update_text()

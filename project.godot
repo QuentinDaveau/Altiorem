@@ -23,6 +23,7 @@ config/icon="res://icon.png"
 
 CameraManager="*res://src/autoload/camera_manager.gd"
 SceneManager="*res://src/autoload/scene_manager/SceneManager.tscn"
+DataManager="*res://src/autoload/data_manager/data_manager.gd"
 
 [display]
 

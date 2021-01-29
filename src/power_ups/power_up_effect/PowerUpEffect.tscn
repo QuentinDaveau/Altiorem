@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/power_ups/power_up_effect/power_up_effect.gd" type="Script" id=1]
+
+[node name="PowerUpEffect" type="Node2D"]
+script = ExtResource( 1 )

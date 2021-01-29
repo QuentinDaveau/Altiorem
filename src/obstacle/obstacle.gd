@@ -10,8 +10,9 @@ export(float, 0, 1) var _power_proc_chance: float = 0.2
 export(int, 0, 100) var _score_value: int = 10
 
 
-
 onready var _current_health: int = _starting_health
+
+var _destroyed: bool = false
 
 
 func _ready() -> void:
@@ -28,6 +29,8 @@ func get_score_value() -> int:
 
 
 func hit() -> void:
+	if _destroyed:
+		return
 	_current_health -= 1
 	if _current_health <= 0:
 		destroy()
@@ -37,6 +40,9 @@ func hit() -> void:
 
 
 func destroy() -> void:
+	if _destroyed:
+		return
+	_destroyed = true
 	emit_signal("destroyed")
 	CameraManager.add_shake(_camera_shake_amount)
 	$CollisionShape2D.set_deferred("disabled", true)

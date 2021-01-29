@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/sprites/unicorn.png" type="Texture" id=1]
+[ext_resource path="res://src/power_ups/power_up_pickable/PowerUpPickable.tscn" type="PackedScene" id=3]
+
+[node name="TestPowerUp" instance=ExtResource( 3 )]
+_power_identifier = "SuperJump"
+
+[node name="Sprite" parent="." index="0"]
+scale = Vector2( 0.06, 0.06 )
+texture = ExtResource( 1 )

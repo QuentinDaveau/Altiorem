@@ -1,13 +1,9 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/ball/ball.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/ball_clear.png" type="Texture" id=2]
 [ext_resource path="res://src/ball/trail.gd" type="Script" id=3]
-[ext_resource path="res://src/ball/powers_manager/powers_manager.gd" type="Script" id=4]
-[ext_resource path="res://src/ball/powers_manager/power/super_jump/SuperJump.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/ball/powers_manager/power/normal/Normal.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/ball/powers_manager/power/explosion/Explosion.tscn" type="PackedScene" id=7]
-[ext_resource path="res://src/ball/powers_manager/power/breaker/Breaker.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/power_ups/power_up_receiver/receivers/ball_power_up_receiver/BallPowerUpReceiver.tscn" type="PackedScene" id=4]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 0.8
@@ -65,13 +61,4 @@ texture = ExtResource( 2 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/bounce = SubResource( 4 )
 
-[node name="PowersManager" type="Node2D" parent="."]
-script = ExtResource( 4 )
-
-[node name="Normal" parent="PowersManager" instance=ExtResource( 6 )]
-
-[node name="Explosion" parent="PowersManager" instance=ExtResource( 7 )]
-
-[node name="SuperJump" parent="PowersManager" instance=ExtResource( 5 )]
-
-[node name="Breaker" parent="PowersManager" instance=ExtResource( 8 )]
+[node name="BallPowerUpReceiver" parent="." instance=ExtResource( 4 )]

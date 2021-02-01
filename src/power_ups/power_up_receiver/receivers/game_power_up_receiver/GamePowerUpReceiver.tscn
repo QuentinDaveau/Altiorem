@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/power_ups/power_up_receiver/PowerUpReceiver.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/power_ups/power_up_effect/game_effect/bar/Bar.tscn" type="PackedScene" id=2]
+
+[node name="GamePowerUpReceiver" instance=ExtResource( 1 )]
+_identifier = "Game"
+
+[node name="Bar" parent="PowerUps" index="0" instance=ExtResource( 2 )]

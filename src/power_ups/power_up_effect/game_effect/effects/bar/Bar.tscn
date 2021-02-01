@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://src/power_ups/power_up_effect/PowerUpEffect.tscn" type="PackedScene" id=1]
-
-
-
-
-[node name="Bar" instance=ExtResource( 1 )]

@@ -39,9 +39,5 @@ func _hit_platform(state: Physics2DDirectBodyState, platform: StaticBody2D) -> P
 	return ._hit_platform(state, platform)
 
 
-func _hit_block(block: PhysicsBody2D) -> void:
-	block.hit()
-
-
 func _on_Area2D_body_entered(body: Node) -> void:
 	body.destroy()

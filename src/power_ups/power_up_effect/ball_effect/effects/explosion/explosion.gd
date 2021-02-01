@@ -11,7 +11,8 @@ func _on_refresh() -> void:
 
 func _hit_block(block: PhysicsBody2D) -> void:
 	for b in $Area2D.get_overlapping_bodies():
-		b.hit()
+		if not b == block:
+			b.hit()
 	CameraManager.add_shake(4)
 	$AnimationPlayer.play("explode")
 

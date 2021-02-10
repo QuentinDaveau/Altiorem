@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/ball/ball.gd" type="Script" id=1]
-[ext_resource path="res://assets/sprites/ball_clear.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/sphere_512.png" type="Texture" id=2]
 [ext_resource path="res://src/ball/trail.gd" type="Script" id=3]
 [ext_resource path="res://src/power_ups/power_up_receiver/receivers/ball_power_up_receiver/BallPowerUpReceiver.tscn" type="PackedScene" id=4]
 
@@ -9,7 +9,7 @@
 bounce = 0.8
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 26.0181
+radius = 23.7618
 
 [sub_resource type="Curve" id=3]
 bake_resolution = 20
@@ -20,7 +20,7 @@ resource_name = "bounce"
 length = 0.2
 step = 0.01
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:scale")
+tracks/0/path = NodePath("Upscaler/Sprite:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -54,11 +54,15 @@ width_curve = SubResource( 3 )
 default_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 3 )
 
-[node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.825129, 0.825129 )
+[node name="Upscaler" type="Node2D" parent="."]
+scale = Vector2( 0.1, 0.1 )
+
+[node name="Sprite" type="Sprite" parent="Upscaler"]
 texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/bounce = SubResource( 4 )
 
 [node name="BallPowerUpReceiver" parent="." instance=ExtResource( 4 )]
+
+[node name="Tween" type="Tween" parent="."]

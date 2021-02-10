@@ -1,19 +1,23 @@
 [gd_scene load_steps=2 format=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16, 896 )
+extents = Vector2( 48, 896 )
 
 [node name="Borders" type="Node2D"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2( 304, 0 )
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=[
+"border",
+]]
+position = Vector2( 336, 0 )
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource( 1 )
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2( -304, 0 )
+[node name="StaticBody2D2" type="StaticBody2D" parent="." groups=[
+"border",
+]]
+position = Vector2( -336, 0 )
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/power_ups/power_up_pickable/PowerUpPickable.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/UI/menu_shop.png" type="Texture" id=2]
+
+[node name="SuperBallPickable" instance=ExtResource( 1 )]
+_power_identifier = "SuperBall"
+
+[node name="Sprite" parent="." index="0"]
+scale = Vector2( 0.260649, 0.260649 )
+texture = ExtResource( 2 )

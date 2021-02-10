@@ -12,7 +12,6 @@ var _datas: Dictionary
 func _ready() -> void:
 	_parser = _instanciate_parser()
 	_datas = _parser.read_file(SAVE_PATH)
-	print(_datas)
 
 
 func add_data(data_name: String, value) -> void:

@@ -1,9 +1,9 @@
 extends "../../ball_effect.gd"
 
+onready var _ball = get_tree().get_nodes_in_group("ball")[0]
 
 var _breaking: bool = false
 var _bounced_semaphore: int = 0
-var _ball: RigidBody2D
 
 
 func process_state(state: Physics2DDirectBodyState) -> Physics2DDirectBodyState:
@@ -28,12 +28,12 @@ func _disable_breaking() -> void:
 	_breaking = false
 	$Particles2D.emitting = false
 	$Area2D.set_deferred("monitoring", false)
-	get_tree().get_nodes_in_group("ball")[0].enable_block_collision()
+	_ball.enable_block_collision()
 
 
 func _hit_platform(state: Physics2DDirectBodyState, platform: StaticBody2D) -> Physics2DDirectBodyState:
 	_breaking = true
-	get_tree().get_nodes_in_group("ball")[0].disable_block_collision()
+	_ball.disable_block_collision()
 	$Area2D.set_deferred("monitoring", true)
 	$Particles2D.emitting = true
 	return ._hit_platform(state, platform)

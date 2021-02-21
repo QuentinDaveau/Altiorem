@@ -20,11 +20,11 @@ script = ExtResource( 4 )
 
 [node name="StartManager" parent="." instance=ExtResource( 8 )]
 
-[node name="Background" parent="." instance=ExtResource( 7 )]
-
 [node name="PowerUpsManager" parent="." instance=ExtResource( 3 )]
 
 [node name="SectionManager" parent="." instance=ExtResource( 6 )]
+
+[node name="Background" parent="." instance=ExtResource( 7 )]
 
 [node name="Ball" parent="." instance=ExtResource( 1 )]
 position = Vector2( 288, 448 )
@@ -35,6 +35,3 @@ position = Vector2( 288, 448 )
 
 [node name="GameUI" parent="." instance=ExtResource( 10 )]
 [connection signal="score_updated" from="ScoreManager" to="GameUI" method="_on_ScoreManager_score_updated"]
-[connection signal="ball_fell" from="ScrollFollower/FallDetector" to="." method="_on_FallDetector_ball_fell"]
-
-[editable path="ScrollFollower"]

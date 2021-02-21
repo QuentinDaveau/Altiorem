@@ -1,6 +1,10 @@
 extends Node
 
 
+func _ready() -> void:
+	get_tree().get_nodes_in_group("fall_detector")[0].connect("ball_fell", self, "_on_FallDetector_ball_fell")
+
+
 func _on_FallDetector_ball_fell(ball: RigidBody2D) -> void:
 	ball.sleeping = true
 	ball.set_deferred("mode", ball.MODE_STATIC)

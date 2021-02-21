@@ -9,4 +9,6 @@ func _ready() -> void:
 
 func _on_ButtonEffect_pressed() -> void:
 	if not _disable_animation:
+		if $AnimationPlayer.is_playing():
+			$AnimationPlayer.stop()
 		$AnimationPlayer.play("press")

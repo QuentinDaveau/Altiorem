@@ -22,7 +22,9 @@ position = Vector2( 0, 937.974 )
 
 [node name="Borders" parent="." instance=ExtResource( 2 )]
 
-[node name="FallDetector" parent="." instance=ExtResource( 6 )]
+[node name="FallDetector" parent="." groups=[
+"fall_detector",
+] instance=ExtResource( 6 )]
 position = Vector2( 0, 896 )
 
 [node name="GamePowerUpReceiver" parent="." instance=ExtResource( 5 )]

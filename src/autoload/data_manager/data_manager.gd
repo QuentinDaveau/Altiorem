@@ -9,7 +9,7 @@ var _parser: Node
 var _datas: Dictionary
 
 
-func _ready() -> void:
+func _enter_tree() -> void:
 	_parser = _instanciate_parser()
 	_datas = _parser.read_file(SAVE_PATH)
 

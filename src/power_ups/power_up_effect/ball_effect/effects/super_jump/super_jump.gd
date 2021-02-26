@@ -32,6 +32,8 @@ func _disable_breaking() -> void:
 
 
 func _hit_platform(state: Physics2DDirectBodyState, platform: StaticBody2D) -> Physics2DDirectBodyState:
+	if _breaking:
+		return ._hit_platform(state, platform)
 	_breaking = true
 	_ball.disable_block_collision()
 	$Area2D.set_deferred("monitoring", true)

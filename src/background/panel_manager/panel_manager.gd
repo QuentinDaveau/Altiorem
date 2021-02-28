@@ -8,6 +8,8 @@ const LAYER_SCALE: float = 0.1
 
 export(Gradient) var _gradient: Gradient
 
+var unload_panels: bool = true
+
 var _panel = preload("res://src/background/panel/Panel.tscn")
 
 var _instanciated_panels: Array = []
@@ -43,7 +45,8 @@ func _instance_new_panels() -> void:
 			_gradient.interpolate(_current_step / MAX_LENGTH))
 	new_panel.position = Vector2(new_panel.position.x, - PANEL_HEIGHT * _current_step)
 	$Panels.add_child(new_panel)
-	if _instanciated_panels.size() > PRESPAWNED_PANELS + 4:
-		_instanciated_panels[0].queue_free()
-		_instanciated_panels.pop_front()
+	if unload_panels:
+		if _instanciated_panels.size() > PRESPAWNED_PANELS + 4:
+			_instanciated_panels[0].queue_free()
+			_instanciated_panels.pop_front()
 	_instanciated_panels.append(new_panel)

@@ -29,6 +29,16 @@ func fix_score() -> Dictionary:
 		scores.append(new_score)
 		DataManager.add_data("scores", scores)
 		DataManager.add_data("points", DataManager.get_data("points", 0) + ratios["points"])
+		DataManager.add_data("best", ratios["best"])
+		DataManager.add_data("mean", ratios["mean"])
+		DataManager.add_data("games", scores.size())
+		
+		if _height_score > DataManager.get_data("max_height", 0):
+			DataManager.add_data("max_height", _height_score)
+		
+		if _breaks > DataManager.get_data("max_breaks", 0):
+			DataManager.add_data("max_breaks", _breaks)
+		
 	return ratios
 
 

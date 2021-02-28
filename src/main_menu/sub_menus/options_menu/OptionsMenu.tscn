@@ -16,7 +16,7 @@
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 10 )
 shader_param/shadow_color = Color( 0, 0, 0, 0.541176 )
-shader_param/shadow_displacement = Vector2( 0.05, 0.06 )
+shader_param/shadow_displacement = Vector2( 0.04, 0.04 )
 
 [node name="OptionsMenu" instance=ExtResource( 1 )]
 script = ExtResource( 11 )

@@ -1,5 +1,10 @@
 extends RigidBody2D
 
+
+onready var _initial_sprite_scale: Vector2 = $Upscaler.scale
+onready var _initial_collision_scale: float = $CollisionShape2D.get_shape().get_radius()
+onready var _initial_trail_scale: float = $Trail.width
+
 var _disable_semaphore: int = 0
 var _scale_multiplier: float = 0
 
@@ -17,10 +22,10 @@ func change_scale(scale_multiplier: float) -> void:
 	gravity_scale = 0.7
 	linear_damp = 0.4
 	_scale_multiplier = scale_multiplier
-	$CollisionShape2D.get_shape().set_radius(scale_multiplier * $CollisionShape2D.get_shape().get_radius())
-	$Tween.interpolate_property($Upscaler, "scale", $Upscaler.scale, $Upscaler.scale * scale_multiplier, 0.5,\
+	$CollisionShape2D.get_shape().set_radius(scale_multiplier * _initial_collision_scale)
+	$Tween.interpolate_property($Upscaler, "scale", $Upscaler.scale, _initial_sprite_scale * scale_multiplier, 0.5,\
 			Tween.TRANS_BACK, Tween.EASE_OUT)
-	$Tween.interpolate_property($Trail, "width", $Trail.width, $Trail.width * scale_multiplier * 0.8,\
+	$Tween.interpolate_property($Trail, "width", $Trail.width, _initial_trail_scale * scale_multiplier * 0.8,\
 			0.6, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
 	$Tween.start()
 
@@ -30,10 +35,10 @@ func reset_scale() -> void:
 		return
 	gravity_scale = 1
 	linear_damp = -1
-	$CollisionShape2D.get_shape().set_radius($CollisionShape2D.get_shape().get_radius() / _scale_multiplier)
-	$Tween.interpolate_property($Upscaler, "scale", $Upscaler.scale, $Upscaler.scale / _scale_multiplier, 0.5,\
+	$CollisionShape2D.get_shape().set_radius(_initial_collision_scale)
+	$Tween.interpolate_property($Upscaler, "scale", $Upscaler.scale, _initial_sprite_scale, 0.5,\
 			Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
-	$Tween.interpolate_property($Trail, "width", $Trail.width, $Trail.width / _scale_multiplier / 0.8,\
+	$Tween.interpolate_property($Trail, "width", $Trail.width, _initial_trail_scale,\
 			0.4, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
 	$Tween.start()
 	_scale_multiplier = 0

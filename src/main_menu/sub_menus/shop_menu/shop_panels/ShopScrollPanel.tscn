@@ -1,0 +1,113 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/ui/ShopButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/UI/themes/scroll_no_bar.tres" type="Theme" id=2]
+
+[node name="ShopScrollPanel" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 0.742
+margin_bottom = 0.192017
+rect_min_size = Vector2( 576, 760 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 2 )
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 576.0
+margin_bottom = 1424.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ShopButton" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 576.0
+margin_bottom = 115.0
+
+[node name="ShopButton2" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 119.0
+margin_right = 576.0
+margin_bottom = 234.0
+
+[node name="ShopButton3" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 238.0
+margin_right = 576.0
+margin_bottom = 353.0
+
+[node name="ShopButton4" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 357.0
+margin_right = 576.0
+margin_bottom = 472.0
+
+[node name="ShopButton5" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 476.0
+margin_right = 576.0
+margin_bottom = 591.0
+
+[node name="ShopButton6" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 595.0
+margin_right = 576.0
+margin_bottom = 710.0
+
+[node name="ShopButton7" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 714.0
+margin_right = 576.0
+margin_bottom = 829.0
+
+[node name="ShopButton8" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 833.0
+margin_right = 576.0
+margin_bottom = 948.0
+
+[node name="ShopButton9" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 952.0
+margin_right = 576.0
+margin_bottom = 1067.0
+
+[node name="ShopButton10" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 1071.0
+margin_right = 576.0
+margin_bottom = 1186.0
+
+[node name="ShopButton11" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 1190.0
+margin_right = 576.0
+margin_bottom = 1305.0
+
+[node name="ShopButton12" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 1309.0
+margin_right = 576.0
+margin_bottom = 1424.0

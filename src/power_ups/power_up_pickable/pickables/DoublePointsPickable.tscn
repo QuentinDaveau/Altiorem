@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://assets/UI/restart.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/doublescore_powerup.png" type="Texture" id=1]
 [ext_resource path="res://src/power_ups/power_up_pickable/PowerUpPickable.tscn" type="PackedScene" id=2]
 
 [node name="DoublePointsPickable" instance=ExtResource( 2 )]
@@ -8,5 +8,5 @@ _power_identifier = "DoublePoints"
 _target = "Game"
 
 [node name="Sprite" parent="." index="0"]
-scale = Vector2( 0.233269, 0.233269 )
+scale = Vector2( 0.11, 0.11 )
 texture = ExtResource( 1 )

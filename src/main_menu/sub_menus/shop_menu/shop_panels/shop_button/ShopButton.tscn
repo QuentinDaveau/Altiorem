@@ -1,0 +1,341 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://assets/fonts/LG_50_shadow.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/art_resources/shop_button_with_shadow.shader" type="Shader" id=2]
+[ext_resource path="res://assets/UI/shop_bar_mask.png" type="Texture" id=3]
+[ext_resource path="res://assets/art_resources/drop_shadow.shader" type="Shader" id=5]
+[ext_resource path="res://src/main_menu/sub_menus/shop_menu/shop_panels/shop_button/shop_button.gd" type="Script" id=6]
+[ext_resource path="res://assets/UI/menu_shop.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/platform.png" type="Texture" id=8]
+[ext_resource path="res://assets/UI/locked.png" type="Texture" id=9]
+
+[sub_resource type="Gradient" id=8]
+colors = PoolColorArray( 0, 0, 0.294118, 1, 0.0470588, 0.611765, 0.580392, 1 )
+
+[sub_resource type="GradientTexture" id=9]
+gradient = SubResource( 8 )
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 2 )
+shader_param/shadow_color = Color( 0, 0, 0, 0.498039 )
+shader_param/shadow_displacement = Vector2( 0.012, 0.052 )
+shader_param/alpha_limit = 0.25
+shader_param/fill_texture = SubResource( 9 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "deny"
+length = 0.35
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35 ),
+"transitions": PoolRealArray( 0.5, 2, 0.5, 2, 0.5, 2, 0.5, 1 ),
+"update": 3,
+"values": [ 0.0, 10.0, 0.0, -10.0, 0.0, 10.0, 5.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.25 ),
+"transitions": PoolRealArray( 0.5, 2, 0.5, 2, 0.5 ),
+"update": 0,
+"values": [ 1.0, 0.8, 0.95, 1.1, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.15, 0.2, 0.3 ),
+"transitions": PoolRealArray( 0.5, 2, 0.5, 2, 0.5 ),
+"update": 0,
+"values": [ 1.0, 0.7, 0.9, 1.1, 1.0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "unlock"
+length = 2.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("LockedSection/LockSprite:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 200, 1.90735e-06 ), Vector2( 205, 0 ), Vector2( 195, 0 ), Vector2( 210, 0 ), Vector2( 190, 0 ), Vector2( 210, 0 ), Vector2( 190, 0 ), Vector2( 210, 0 ), Vector2( 190, 0 ), Vector2( 200, 1.90735e-06 ), Vector2( 195, 0 ), Vector2( 205, 0 ), Vector2( 200, 1.90735e-06 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("LockedSection/LockSprite:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.9, 0.9 ), Vector2( 0.8, 0.8 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("LockedSection/CPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("LockedSection/CPUParticles2D2:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("LockedSection/PriceLabel:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("LockedSection/CurrencySprite:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("LockedSection/LockSprite:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/7/type = "method"
+tracks/7/path = NodePath(".")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "shake_camera"
+} ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath(".:rect_scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.7, 0.8, 0.9, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 0.5, 0.25, 2, 0.5, 2, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.95, 0.95 ), Vector2( 0.9, 0.9 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ), Vector2( 0.9, 0.9 ), Vector2( 0.95, 0.95 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="ShaderMaterial" id=7]
+shader = ExtResource( 5 )
+shader_param/shadow_color = Color( 0, 0, 0, 0.498039 )
+shader_param/shadow_displacement = Vector2( 0.03, 0.03 )
+shader_param/alpha_limit = 0.2
+
+[node name="ShopButton" type="TextureButton"]
+material = SubResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_right = 5.0
+margin_bottom = -909.0
+rect_min_size = Vector2( 0, 115 )
+rect_scale = Vector2( 0.934722, 0.934722 )
+rect_pivot_offset = Vector2( 288, 57 )
+mouse_filter = 1
+size_flags_horizontal = 3
+shortcut_in_tooltip = false
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/deny = SubResource( 2 )
+anims/press = SubResource( 3 )
+anims/unlock = SubResource( 5 )
+
+[node name="DetailRect" type="TextureRect" parent="."]
+anchor_left = 0.069
+anchor_top = 0.139
+anchor_right = 0.389
+anchor_bottom = 0.835
+margin_left = 0.255997
+margin_top = 0.0149984
+margin_right = -0.0640106
+margin_bottom = -0.0250015
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="LockedSection" type="Control" parent="."]
+anchor_left = 0.069
+anchor_top = 0.139
+anchor_right = 0.931
+anchor_bottom = 0.835
+margin_left = 0.255997
+margin_top = 0.0149984
+margin_right = -0.256042
+margin_bottom = -0.0250015
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PriceLabel" type="RichTextLabel" parent="LockedSection"]
+anchor_left = 0.613
+anchor_top = 0.2
+anchor_right = 0.823
+anchor_bottom = 0.9
+margin_left = -0.0480042
+margin_right = -0.208008
+custom_fonts/normal_font = ExtResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.498039 )
+custom_constants/shadow_offset_x = 3
+custom_constants/shadow_offset_y = 3
+bbcode_enabled = true
+bbcode_text = "[right]500 [/right]"
+meta_underlined = false
+text = "500 "
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CurrencySprite" type="TextureRect" parent="LockedSection"]
+anchor_left = 0.823
+anchor_right = 1.0
+anchor_bottom = 0.9
+margin_left = -0.208008
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LockSprite" type="TextureRect" parent="LockedSection"]
+material = SubResource( 7 )
+anchor_left = 0.403
+anchor_right = 0.565
+anchor_bottom = 1.0
+margin_left = 10.112
+margin_right = 9.75922
+rect_scale = Vector2( 0.869444, 0.869444 )
+rect_pivot_offset = Vector2( 40, 40 )
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="LockedSection"]
+position = Vector2( 240, 48 )
+emitting = false
+amount = 6
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+local_coords = false
+direction = Vector2( 0, -1 )
+spread = 28.45
+gravity = Vector2( 0, 1568 )
+initial_velocity = 600.0
+initial_velocity_random = 0.5
+angular_velocity = 360.0
+angular_velocity_random = 1.0
+scale_amount = 20.0
+scale_amount_random = 0.5
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="LockedSection"]
+position = Vector2( 392, 40 )
+emitting = false
+amount = 12
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+local_coords = false
+emission_shape = 2
+emission_rect_extents = Vector2( 100, 30 )
+direction = Vector2( 0, -1 )
+spread = 28.45
+gravity = Vector2( 0, 1568 )
+initial_velocity = 600.0
+initial_velocity_random = 0.5
+angular_velocity = 360.0
+angular_velocity_random = 1.0
+scale_amount = 20.0
+scale_amount_random = 0.5
+__meta__ = {
+"_editor_description_": ""
+}
+[connection signal="pressed" from="." to="." method="_on_ShopButton_pressed"]

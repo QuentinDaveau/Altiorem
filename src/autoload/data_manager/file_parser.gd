@@ -16,6 +16,8 @@ func read_file(file_path: String) -> Dictionary:
 		else:
 			printerr("Unrecognized format, save file may be corrupted")
 		file.close()
+	for element in data:
+		print(element, "   ", data[element])
 	return data
 	
 

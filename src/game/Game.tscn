@@ -6,7 +6,7 @@
 [ext_resource path="res://src/game/game.gd" type="Script" id=4]
 [ext_resource path="res://src/game/camera/Camera.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/section_manager/SectionManager.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/background/BackGround.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/background/background_loader/BackGroundLoader.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/game/start_manager/StartManager.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/game/score_manager/ScoreManager.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/game/game_ui/GameUI.tscn" type="PackedScene" id=10]
@@ -24,7 +24,8 @@ script = ExtResource( 4 )
 
 [node name="SectionManager" parent="." instance=ExtResource( 6 )]
 
-[node name="Background" parent="." instance=ExtResource( 7 )]
+[node name="BackGroundLoader" parent="." instance=ExtResource( 7 )]
+_unload_panels = false
 
 [node name="Ball" parent="." instance=ExtResource( 1 )]
 position = Vector2( 288, 448 )

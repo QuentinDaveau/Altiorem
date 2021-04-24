@@ -1,12 +1,78 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/main_menu/sub_menus/shop_menu/shop_panels/ShopScrollPanel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/art_resources/panel_theme.tres" type="StyleBox" id=2]
 [ext_resource path="res://assets/UI/themes/scroll_no_bar.tres" type="Theme" id=3]
 [ext_resource path="res://src/main_menu/sub_menus/shop_menu/shop_panels/shop_canvas.gd" type="Script" id=4]
 [ext_resource path="res://assets/UI/shop_background_button.png" type="Texture" id=5]
 [ext_resource path="res://assets/UI/shop_skins_button.png" type="Texture" id=6]
 [ext_resource path="res://assets/UI/shop_extras_button.png" type="Texture" id=7]
 [ext_resource path="res://src/main_menu/sub_menus/shop_menu/shop_panels/radio_select_hbox_container.gd" type="Script" id=8]
+[ext_resource path="res://src/main_menu/sub_menus/shop_menu/shop_panels/comfirm_panel/ComfirmPanel.tscn" type="PackedScene" id=9]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 1, 1 )
+draw_center = false
+border_width_bottom = 10
+border_color = Color( 1, 1, 1, 1 )
+corner_detail = 1
+expand_margin_bottom = 5.0
+
+[sub_resource type="Animation" id=2]
+resource_name = "comfirm_panel_exit"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("PanelContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.25098 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ComfirmPanel:rect_position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3 ),
+"transitions": PoolRealArray( 0.5, 2, 1 ),
+"update": 0,
+"values": [ 256.0, 340.0, -340.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "confirm_panel_enter"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("PanelContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.25098 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ComfirmPanel:rect_position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 0.5, 2, 1 ),
+"update": 0,
+"values": [ -340.0, 340.0, 256.0 ]
+}
 
 [node name="ShopCanvas" type="Control"]
 anchor_top = 0.062
@@ -19,22 +85,36 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 16.0
+margin_right = -16.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
-margin_right = 576.0
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+margin_left = 10.0
+margin_top = 20.0
+margin_right = 534.0
+margin_bottom = 782.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer"]
+margin_right = 524.0
 margin_bottom = 64.0
-custom_constants/margin_right = 26
+custom_constants/margin_right = 16
 custom_constants/margin_left = 16
 
-[node name="RadioSelectHBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+[node name="RadioSelectHBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer"]
 margin_left = 16.0
-margin_right = 550.0
+margin_right = 508.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 0, 64 )
 custom_constants/separation = 7
@@ -43,8 +123,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SkinsButton" type="TextureButton" parent="VBoxContainer/MarginContainer/RadioSelectHBoxContainer"]
-margin_right = 173.0
+[node name="SkinsButton" type="TextureButton" parent="PanelContainer/VBoxContainer/MarginContainer/RadioSelectHBoxContainer"]
+margin_right = 159.0
 margin_bottom = 64.0
 rect_pivot_offset = Vector2( 86, 32 )
 size_flags_horizontal = 3
@@ -57,9 +137,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BackgroundsButton" type="TextureButton" parent="VBoxContainer/MarginContainer/RadioSelectHBoxContainer"]
-margin_left = 180.0
-margin_right = 353.0
+[node name="BackgroundsButton" type="TextureButton" parent="PanelContainer/VBoxContainer/MarginContainer/RadioSelectHBoxContainer"]
+margin_left = 166.0
+margin_right = 325.0
 margin_bottom = 64.0
 rect_pivot_offset = Vector2( 86, 32 )
 size_flags_horizontal = 3
@@ -72,9 +152,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ExtrasButton" type="TextureButton" parent="VBoxContainer/MarginContainer/RadioSelectHBoxContainer"]
-margin_left = 360.0
-margin_right = 534.0
+[node name="ExtrasButton" type="TextureButton" parent="PanelContainer/VBoxContainer/MarginContainer/RadioSelectHBoxContainer"]
+margin_left = 332.0
+margin_right = 492.0
 margin_bottom = 64.0
 rect_pivot_offset = Vector2( 86, 32 )
 size_flags_horizontal = 3
@@ -87,55 +167,73 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Tween" type="Tween" parent="VBoxContainer/MarginContainer/RadioSelectHBoxContainer"]
+[node name="Tween" type="Tween" parent="PanelContainer/VBoxContainer/MarginContainer/RadioSelectHBoxContainer"]
 
-[node name="Control" type="Control" parent="VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/VBoxContainer"]
 margin_top = 68.0
-margin_right = 576.0
+margin_right = 524.0
 margin_bottom = 78.0
-rect_min_size = Vector2( 0, 10 )
-size_flags_stretch_ratio = 0.0
+custom_styles/separator = SubResource( 1 )
+custom_constants/separation = 10
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer"]
 margin_top = 82.0
-margin_right = 576.0
-margin_bottom = 792.0
+margin_right = 524.0
+margin_bottom = 762.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 3 )
 scroll_vertical_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ScrollContainer"]
-margin_right = 1728.0
-margin_bottom = 710.0
-rect_min_size = Vector2( 1728, 0 )
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer"]
+margin_right = 1572.0
+margin_bottom = 680.0
+rect_min_size = Vector2( 1572, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_constants/separation = 0
 
-[node name="ShopScrollPanel" parent="VBoxContainer/ScrollContainer/HBoxContainer" instance=ExtResource( 1 )]
+[node name="BackgroundsPanel" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 573.0
-margin_bottom = 710.0
+margin_right = 524.0
+margin_bottom = 680.0
+_folder_to_scan = "res://content/shop_buttons/background_buttons"
 
-[node name="ShopScrollPanel2" parent="VBoxContainer/ScrollContainer/HBoxContainer" instance=ExtResource( 1 )]
+[node name="ShadersPanel" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 577.0
-margin_right = 1150.0
-margin_bottom = 710.0
+margin_left = 524.0
+margin_right = 1048.0
+margin_bottom = 680.0
+_folder_to_scan = "res://content/shop_buttons/shader_buttons"
 
-[node name="ShopScrollPanel3" parent="VBoxContainer/ScrollContainer/HBoxContainer" instance=ExtResource( 1 )]
+[node name="ExtrasPanel" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 1154.0
-margin_right = 1728.0
-margin_bottom = 710.0
+margin_left = 1048.0
+margin_right = 1572.0
+margin_bottom = 680.0
+_folder_to_scan = "res://content/shop_buttons/extra_buttons"
+
+[node name="ComfirmPanel" parent="." instance=ExtResource( 9 )]
+margin_top = -595.816
+margin_bottom = -550.255
 
 [node name="Tween" type="Tween" parent="."]
-[connection signal="pressed" from="VBoxContainer/MarginContainer/RadioSelectHBoxContainer/SkinsButton" to="." method="_on_SkinsButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/MarginContainer/RadioSelectHBoxContainer/SkinsButton" to="VBoxContainer/MarginContainer/RadioSelectHBoxContainer" method="_on_SkinsButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/MarginContainer/RadioSelectHBoxContainer/BackgroundsButton" to="." method="_on_BackgroundsButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/MarginContainer/RadioSelectHBoxContainer/BackgroundsButton" to="VBoxContainer/MarginContainer/RadioSelectHBoxContainer" method="_on_BackgroundsButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/MarginContainer/RadioSelectHBoxContainer/ExtrasButton" to="." method="_on_ExtrasButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/MarginContainer/RadioSelectHBoxContainer/ExtrasButton" to="VBoxContainer/MarginContainer/RadioSelectHBoxContainer" method="_on_ExtrasButton_pressed"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/comfirm_panel_exit = SubResource( 2 )
+anims/confirm_panel_enter = SubResource( 3 )
+[connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/RadioSelectHBoxContainer/SkinsButton" to="PanelContainer/VBoxContainer/MarginContainer/RadioSelectHBoxContainer" method="_on_SkinsButton_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/RadioSelectHBoxContainer/SkinsButton" to="." method="_on_SkinsButton_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/RadioSelectHBoxContainer/BackgroundsButton" to="PanelContainer/VBoxContainer/MarginContainer/RadioSelectHBoxContainer" method="_on_BackgroundsButton_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/RadioSelectHBoxContainer/BackgroundsButton" to="." method="_on_BackgroundsButton_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/RadioSelectHBoxContainer/ExtrasButton" to="PanelContainer/VBoxContainer/MarginContainer/RadioSelectHBoxContainer" method="_on_ExtrasButton_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/RadioSelectHBoxContainer/ExtrasButton" to="." method="_on_ExtrasButton_pressed"]
+[connection signal="button_added" from="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/BackgroundsPanel" to="." method="_on_ShopPanel_button_added"]
+[connection signal="button_added" from="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/ShadersPanel" to="." method="_on_ShopPanel_button_added"]
+[connection signal="button_added" from="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/ExtrasPanel" to="." method="_on_ShopPanel_button_added"]

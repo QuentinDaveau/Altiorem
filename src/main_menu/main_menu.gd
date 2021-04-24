@@ -4,7 +4,6 @@ onready var _main_position = $Camera2D.position
 
 
 func _ready() -> void:
-	$Camera2D/BackgroundViewport/Viewport/Background.set_panels_unload(false)
 	for m in $SubMenus.get_children():
 		m.connect("back_pressed", self, "_on_SubMenu_back_pressed")
 

@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/fonts/LG_50_shadow.tres" type="DynamicFont" id=1]
 [ext_resource path="res://src/main_menu/sub_menus/sub_menu.gd" type="Script" id=2]
 [ext_resource path="res://src/ui/ButtonEffect.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/UI/restart.png" type="Texture" id=4]
+[ext_resource path="res://assets/UI/back.png" type="Texture" id=4]
 
 [node name="SubMenu" type="Position2D"]
 position = Vector2( 0, -1024 )

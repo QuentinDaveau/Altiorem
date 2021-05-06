@@ -228,12 +228,12 @@ margin_bottom = -550.255
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/comfirm_panel_exit = SubResource( 2 )
 anims/confirm_panel_enter = SubResource( 3 )
-[connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/RadioSelectHBoxContainer/SkinsButton" to="PanelContainer/VBoxContainer/MarginContainer/RadioSelectHBoxContainer" method="_on_SkinsButton_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/RadioSelectHBoxContainer/SkinsButton" to="." method="_on_SkinsButton_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/RadioSelectHBoxContainer/BackgroundsButton" to="PanelContainer/VBoxContainer/MarginContainer/RadioSelectHBoxContainer" method="_on_BackgroundsButton_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/RadioSelectHBoxContainer/SkinsButton" to="PanelContainer/VBoxContainer/MarginContainer/RadioSelectHBoxContainer" method="_on_SkinsButton_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/RadioSelectHBoxContainer/BackgroundsButton" to="." method="_on_BackgroundsButton_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/RadioSelectHBoxContainer/ExtrasButton" to="PanelContainer/VBoxContainer/MarginContainer/RadioSelectHBoxContainer" method="_on_ExtrasButton_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/RadioSelectHBoxContainer/BackgroundsButton" to="PanelContainer/VBoxContainer/MarginContainer/RadioSelectHBoxContainer" method="_on_BackgroundsButton_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/RadioSelectHBoxContainer/ExtrasButton" to="." method="_on_ExtrasButton_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/RadioSelectHBoxContainer/ExtrasButton" to="PanelContainer/VBoxContainer/MarginContainer/RadioSelectHBoxContainer" method="_on_ExtrasButton_pressed"]
 [connection signal="button_added" from="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/BackgroundsPanel" to="." method="_on_ShopPanel_button_added"]
 [connection signal="button_added" from="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/ShadersPanel" to="." method="_on_ShopPanel_button_added"]
 [connection signal="button_added" from="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/ExtrasPanel" to="." method="_on_ShopPanel_button_added"]

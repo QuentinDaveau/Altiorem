@@ -1,5 +1,7 @@
 extends Control
 
+signal coin_amount_updated()
+
 
 onready var _scroll_container = $PanelContainer/VBoxContainer/ScrollContainer
 
@@ -30,6 +32,7 @@ func _check_wallet(cost: int) -> bool:
 func _process_player_answer(answer: bool, cost: int, button) -> void:
 	if answer:
 		DataManager.add_data("points", DataManager.get_data("points", 0) - cost)
+		emit_signal("coin_amount_updated")
 		button.unlock()
 
 

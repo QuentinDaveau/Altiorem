@@ -9,22 +9,21 @@
 [ext_resource path="res://assets/sprites/platform.png" type="Texture" id=8]
 [ext_resource path="res://assets/UI/locked.png" type="Texture" id=9]
 
-[sub_resource type="Gradient" id=8]
+[sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 0, 0, 0.294118, 1, 0.0470588, 0.611765, 0.580392, 1 )
 
-[sub_resource type="GradientTexture" id=9]
-gradient = SubResource( 8 )
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
 
-[sub_resource type="ShaderMaterial" id=1]
+[sub_resource type="ShaderMaterial" id=3]
 resource_local_to_scene = true
 shader = ExtResource( 2 )
 shader_param/shadow_color = Color( 0, 0, 0, 0.498039 )
 shader_param/shadow_displacement = Vector2( 0.012, 0.052 )
 shader_param/alpha_limit = 0.25
-shader_param/fill_texture = SubResource( 9 )
+shader_param/fill_texture = SubResource( 2 )
 
-[sub_resource type="Animation" id=2]
-resource_name = "deny"
+[sub_resource type="Animation" id=4]
 length = 0.35
 step = 0.05
 tracks/0/type = "value"
@@ -40,7 +39,7 @@ tracks/0/keys = {
 "values": [ 0.0, 10.0, 0.0, -10.0, 0.0, 10.0, 5.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=5]
 length = 0.3
 step = 0.05
 tracks/0/type = "value"
@@ -68,8 +67,7 @@ tracks/1/keys = {
 "values": [ 1.0, 0.7, 0.9, 1.1, 1.0 ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "unlock"
+[sub_resource type="Animation" id=6]
 length = 2.0
 step = 0.05
 tracks/0/type = "value"
@@ -186,11 +184,11 @@ tracks/8/keys = {
 [sub_resource type="ShaderMaterial" id=7]
 shader = ExtResource( 5 )
 shader_param/shadow_color = Color( 0, 0, 0, 0.498039 )
-shader_param/shadow_displacement = Vector2( 0.03, 0.03 )
+shader_param/shadow_displacement = Vector2( 0.042, 0.046 )
 shader_param/alpha_limit = 0.2
 
 [node name="ShopButton" type="TextureButton"]
-material = SubResource( 1 )
+material = SubResource( 3 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 5.0
@@ -211,9 +209,9 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/deny = SubResource( 2 )
-anims/press = SubResource( 3 )
-anims/unlock = SubResource( 5 )
+anims/deny = SubResource( 4 )
+anims/press = SubResource( 5 )
+anims/unlock = SubResource( 6 )
 
 [node name="DetailRect" type="TextureRect" parent="."]
 anchor_left = 0.069
@@ -224,6 +222,7 @@ margin_left = 0.255997
 margin_top = 0.0149984
 margin_right = -0.0640106
 margin_bottom = -0.0250015
+mouse_filter = 2
 texture = ExtResource( 8 )
 expand = true
 stretch_mode = 6
@@ -248,12 +247,15 @@ __meta__ = {
 }
 
 [node name="PriceLabel" type="RichTextLabel" parent="LockedSection"]
-anchor_left = 0.613
+anchor_left = 0.625
 anchor_top = 0.2
-anchor_right = 0.823
+anchor_right = 0.835
 anchor_bottom = 0.9
-margin_left = -0.0480042
-margin_right = -0.208008
+margin_left = 6.7941
+margin_top = 0.142097
+margin_right = 6.63409
+margin_bottom = 0.142105
+mouse_filter = 2
 custom_fonts/normal_font = ExtResource( 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 0.498039 )
 custom_constants/shadow_offset_x = 3
@@ -271,7 +273,11 @@ __meta__ = {
 anchor_left = 0.823
 anchor_right = 1.0
 anchor_bottom = 0.9
-margin_left = -0.208008
+margin_left = 15.9605
+margin_top = 8.89885
+margin_right = -0.831512
+margin_bottom = -3.10114
+mouse_filter = 2
 texture = ExtResource( 7 )
 expand = true
 stretch_mode = 6
@@ -288,6 +294,7 @@ margin_left = 10.112
 margin_right = 9.75922
 rect_scale = Vector2( 0.869444, 0.869444 )
 rect_pivot_offset = Vector2( 40, 40 )
+mouse_filter = 2
 texture = ExtResource( 9 )
 expand = true
 stretch_mode = 6

@@ -35,4 +35,5 @@ position = Vector2( 288, 448 )
 [node name="ScrollFollower" parent="." instance=ExtResource( 2 )]
 
 [node name="GameUI" parent="." instance=ExtResource( 10 )]
+
 [connection signal="score_updated" from="ScoreManager" to="GameUI" method="_on_ScoreManager_score_updated"]

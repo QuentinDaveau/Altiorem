@@ -2,7 +2,7 @@ extends Node
 
 signal loading_done()
 
-const POWERS_FOLDER: String = "res://src/power_ups/power_up_pickable/pickables/"
+const POWERS_FOLDER: String = "res://src/power_ups/power_up_pickable/pickables"
 
 var _loaded_powers: Array = []
 

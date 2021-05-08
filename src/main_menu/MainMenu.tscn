@@ -58,6 +58,7 @@ __meta__ = {
 }
 
 [node name="RandomMover" parent="Camera2D/BackgroundViewport/Viewport/CameraMover" instance=ExtResource( 3 )]
+_max_dist = 32
 
 [node name="BackgroundCamera" type="Camera2D" parent="Camera2D/BackgroundViewport/Viewport/CameraMover/RandomMover"]
 position = Vector2( 0, -3.05176e-05 )
@@ -155,6 +156,7 @@ position = Vector2( 0, -1088 )
 
 [node name="ShopMenu" parent="SubMenus" instance=ExtResource( 10 )]
 position = Vector2( 0, -1088 )
+
 [connection signal="pressed" from="Menu/PlayPosition/Mover/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="Menu/OptionsPosition/Mover/OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="Menu/ScorePosition/Mover/ScoreButton" to="." method="_on_ScoreButton_pressed"]

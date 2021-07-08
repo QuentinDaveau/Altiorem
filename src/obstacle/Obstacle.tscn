@@ -36,3 +36,5 @@ angular_velocity = 360.0
 angular_velocity_random = 1.0
 scale_amount = 30.0
 scale_amount_random = 0.5
+
+[node name="Tween" type="Tween" parent="."]

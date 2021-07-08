@@ -97,6 +97,7 @@ rect_min_size = Vector2( 100, 100 )
 size_flags_horizontal = 4
 texture_normal = ExtResource( 6 )
 stretch_mode = 5
+
 [connection signal="toggled" from="MusicPosition/Mover/MusicButton" to="." method="_on_MusicButton_toggled"]
 [connection signal="toggled" from="SoundPosition/Mover/SoundButton" to="." method="_on_SoundButton_toggled"]
 [connection signal="toggled" from="LightModePosition/Mover/LightModeButton" to="." method="_on_LightModeButton_toggled"]

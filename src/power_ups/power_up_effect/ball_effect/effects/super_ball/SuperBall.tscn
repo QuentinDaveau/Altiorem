@@ -97,6 +97,7 @@ __meta__ = {
 [node name="Timer" type="Timer" parent="Ray" index="2"]
 wait_time = 0.06
 one_shot = true
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="timeout" from="LifeTimer" to="." method="_on_LifeTimer_timeout"]
 [connection signal="timeout" from="Ray/Timer" to="Ray" method="_on_Timer_timeout"]

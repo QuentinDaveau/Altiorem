@@ -33,4 +33,4 @@ func _on_LifeTimer_timeout() -> void:
 func _on_Area2D_body_entered(body: Node) -> void:
 	CameraManager.add_shake(5)
 	$Ray.play_effect(body.global_position)
-	body.destroy()
+	body.destroy((body.global_position - global_position).normalized())

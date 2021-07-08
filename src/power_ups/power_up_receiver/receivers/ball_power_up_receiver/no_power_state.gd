@@ -9,7 +9,10 @@ func process_state(state: Physics2DDirectBodyState) -> Physics2DDirectBodyState:
 		if collider.is_in_group("bouncer"):
 			state = _hit_platform(state, collider)
 		if collider.has_method("hit"):
-			collider.hit()
+			if collider.is_in_group("obstacle"):
+				collider.hit(-state.get_contact_local_normal(0))
+			else:
+				collider.hit()
 	return state
 
 

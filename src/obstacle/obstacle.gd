@@ -1,5 +1,8 @@
 extends RigidBody2D
 
+const HIT_SHAKE_STRENGTH: float = 8.0
+const HIT_SHAKE_TIME: float = 0.06
+
 
 signal destroyed()
 
@@ -28,18 +31,20 @@ func get_score_value() -> int:
 	return _score_value
 
 
-func hit() -> void:
+func hit(hit_dir: Vector2 = Vector2.ZERO) -> void:
 	if _destroyed:
 		return
 	_current_health -= 1
 	if _current_health <= 0:
-		destroy()
+		destroy(hit_dir)
 		return
 	var health_ratio = 1 - float(_current_health) / _starting_health
+	_play_hit(hit_dir)
+	# TEMP: simply lower color to gray
 	$Polygon2D.color = Color.white.linear_interpolate(_break_color, health_ratio)
 
 
-func destroy() -> void:
+func destroy(hit_dir: Vector2 = Vector2.UP) -> void:
 	if _destroyed:
 		return
 	_destroyed = true
@@ -47,7 +52,22 @@ func destroy() -> void:
 	CameraManager.add_shake(_camera_shake_amount)
 	$CollisionShape2D.set_deferred("disabled", true)
 	$Polygon2D.visible = false
+	$Particles2D.global_rotation = hit_dir.angle() + PI/2
 	$Particles2D.emitting = true
 	$Timer.start(3)
 	yield($Timer, "timeout")
 	queue_free()
+
+
+func _play_hit(hit_dir: Vector2) -> void:
+	if !hit_dir: 
+		return
+	$Tween.stop_all()
+	$Tween.interpolate_property($Polygon2D, "position", $Polygon2D.position, \
+			$Polygon2D.position + hit_dir * HIT_SHAKE_STRENGTH, HIT_SHAKE_TIME, \
+			Tween.TRANS_CIRC, Tween.EASE_OUT)
+	$Tween.interpolate_property($Polygon2D, "position", $Polygon2D.position + hit_dir * HIT_SHAKE_STRENGTH, \
+			Vector2.ZERO, HIT_SHAKE_TIME, \
+			Tween.TRANS_BACK, Tween.EASE_OUT, HIT_SHAKE_TIME)
+	$Tween.start()
+

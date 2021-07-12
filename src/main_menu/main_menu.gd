@@ -4,6 +4,7 @@ onready var _main_position = $Camera2D.position
 
 
 func _ready() -> void:
+	$AnimationPlayer.play("menu_appear")
 	for m in $SubMenus.get_children():
 		m.connect("back_pressed", self, "_on_SubMenu_back_pressed")
 

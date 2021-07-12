@@ -6,24 +6,21 @@ var _default_background := "res://content/backgrounds/dawn/Dawn.tscn"
 var _default_shader := ""
 
 
+func _enter_tree() -> void:
+	randomize()
+
 
 func get_random_background() -> ParallaxBackground:
-	var backgrounds_list: Array = DataManager.get_data("activated_backgrounds", [])
-	
-	if backgrounds_list.size() == 0:
-		return load(_default_background).instance()
-	else:
-		return load(_pick_random_element(backgrounds_list)).instance()
+	var backgrounds_list: Array = DataManager.get_data("activated_backgrounds", []).duplicate()
+	backgrounds_list.append(_default_background)
+	return load(_pick_random_element(backgrounds_list)).instance()
 
 
 
 func get_random_shader() -> ShaderMaterial:
 	var shaders_list: Array = DataManager.get_data("activated_shaders", [])
-	
-	if shaders_list.size() == 0:
-		return load(_default_shader).instance()
-	else:
-		return load(_pick_random_element(shaders_list)).instance()
+	shaders_list.append(_default_shader)
+	return load(_pick_random_element(shaders_list)).instance()
 
 
 

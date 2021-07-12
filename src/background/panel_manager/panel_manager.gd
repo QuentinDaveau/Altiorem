@@ -27,6 +27,12 @@ func _ready() -> void:
 		_instance_new_panels()
 
 
+
+func get_gradient() -> Gradient:
+	return _gradient
+
+
+
 func _on_camera_went_up(new_height: float) -> void:
 	if - new_height >= PANEL_HEIGHT * (_current_step - PRESPAWNED_PANELS) / LAYER_SCALE:
 		_instance_new_panels()

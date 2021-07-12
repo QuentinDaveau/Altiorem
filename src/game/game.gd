@@ -3,6 +3,7 @@ extends Node
 
 func _ready() -> void:
 	get_tree().get_nodes_in_group("fall_detector")[0].connect("ball_fell", self, "_on_FallDetector_ball_fell")
+	SceneManager.set_transition_gradient($BackGroundLoader.get_background().get_gradient())
 
 
 func _on_FallDetector_ball_fell(ball: RigidBody2D) -> void:

@@ -36,6 +36,7 @@ func _tween_camera(new_position: Vector2) -> void:
 
 
 func _on_PlayButton_pressed() -> void:
+	SceneManager.set_transition_gradient($Camera2D/BackgroundViewport/Viewport/BackGroundLoader.get_background().get_gradient())
 	SceneManager.load_game()
 
 

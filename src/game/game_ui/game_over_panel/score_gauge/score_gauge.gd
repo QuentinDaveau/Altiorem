@@ -30,6 +30,10 @@ func play_score_counting() -> void:
 	$AnimationPlayer.play("count_score")
 
 
+func set_playback_speed(speed: float = 1.0) -> void:
+	$AnimationPlayer.playback_speed = speed
+
+
 func set_spawn_rate(value: float) -> void:
 	_spawn_rate = value
 	if not _init_done:

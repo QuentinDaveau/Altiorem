@@ -52,6 +52,7 @@ func destroy(hit_dir: Vector2 = Vector2.UP) -> void:
 	CameraManager.add_shake(_camera_shake_amount)
 	$CollisionShape2D.set_deferred("disabled", true)
 	$Polygon2D.visible = false
+	$Particles2D.color = _break_color
 	$Particles2D.global_rotation = hit_dir.angle() + PI/2
 	$Particles2D.emitting = true
 	$Timer.start(3)

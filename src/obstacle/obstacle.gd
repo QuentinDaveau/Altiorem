@@ -38,9 +38,8 @@ func hit(hit_dir: Vector2 = Vector2.ZERO) -> void:
 	if _current_health <= 0:
 		destroy(hit_dir)
 		return
-	var health_ratio = 1 - float(_current_health) / _starting_health
+	var health_ratio = 1 - float(_current_health - 1) / _starting_health
 	_play_hit(hit_dir)
-	# TEMP: simply lower color to gray
 	$Polygon2D.color = Color.white.linear_interpolate(_break_color, health_ratio)
 
 
@@ -69,6 +68,6 @@ func _play_hit(hit_dir: Vector2) -> void:
 			Tween.TRANS_CIRC, Tween.EASE_OUT)
 	$Tween.interpolate_property($Polygon2D, "position", $Polygon2D.position + hit_dir * HIT_SHAKE_STRENGTH, \
 			Vector2.ZERO, HIT_SHAKE_TIME, \
-			Tween.TRANS_BACK, Tween.EASE_OUT, HIT_SHAKE_TIME)
+			Tween.TRANS_CUBIC, Tween.EASE_IN, HIT_SHAKE_TIME)
 	$Tween.start()
 

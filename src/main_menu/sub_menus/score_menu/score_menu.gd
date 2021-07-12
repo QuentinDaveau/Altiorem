@@ -15,7 +15,7 @@ func activate() -> void:
 	if -DataManager.get_data("max_height", 0) * 10 < global_position.y:
 		global_position.y = -DataManager.get_data("max_height", 0) * 10
 	_reset_texts()
-	$Tween.interpolate_method(self, "_interpolate_scores", 0.0, 2.0, INTERPOLATE_DURATION, \
+	$Tween.interpolate_method(self, "_interpolate_scores", 0.0, 1.0, INTERPOLATE_DURATION, \
 			Tween.TRANS_QUINT, Tween.EASE_OUT, 0.4)
 	$Tween.start()
 

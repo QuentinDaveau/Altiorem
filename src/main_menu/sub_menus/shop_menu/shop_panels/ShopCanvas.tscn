@@ -219,6 +219,17 @@ margin_right = 1572.0
 margin_bottom = 680.0
 _folder_to_scan = "res://content/shop_buttons/extra_buttons"
 
+[node name="BlockerRect" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -66.0
+margin_bottom = 174.0
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ComfirmPanel" parent="." instance=ExtResource( 9 )]
 margin_top = -595.816
 margin_bottom = -550.255
@@ -228,6 +239,7 @@ margin_bottom = -550.255
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/comfirm_panel_exit = SubResource( 2 )
 anims/confirm_panel_enter = SubResource( 3 )
+
 [connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/RadioSelectHBoxContainer/SkinsButton" to="." method="_on_SkinsButton_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/RadioSelectHBoxContainer/SkinsButton" to="PanelContainer/VBoxContainer/MarginContainer/RadioSelectHBoxContainer" method="_on_SkinsButton_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/RadioSelectHBoxContainer/BackgroundsButton" to="." method="_on_BackgroundsButton_pressed"]

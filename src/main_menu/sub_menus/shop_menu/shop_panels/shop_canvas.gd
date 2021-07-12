@@ -12,6 +12,7 @@ func _process_player_request(source_button, cost: int) -> void:
 		source_button.play_deny()
 		return
 	
+	$BlockerRect.visible = true
 	$PanelContainer.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	$AnimationPlayer.play("confirm_panel_enter")
 	$ComfirmPanel.await_player_answer(cost)
@@ -34,6 +35,7 @@ func _process_player_answer(answer: bool, cost: int, button) -> void:
 		DataManager.add_data("points", DataManager.get_data("points", 0) - cost)
 		emit_signal("coin_amount_updated")
 		button.unlock()
+	$BlockerRect.visible = false
 
 
 

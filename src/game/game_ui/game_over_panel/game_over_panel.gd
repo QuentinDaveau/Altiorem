@@ -13,7 +13,7 @@ func play_game_over(score: int, mean: int, best: int, points: int) -> void:
 	$AnimationPlayer.playback_speed = 1.0
 	$Control/ScoreGauge.set_playback_speed(1.0)
 	$ScoreLabel.bbcode_text = "[center]" + String(score) + "[/center]"
-	$PointsLabel.bbcode_text = "[center]" + String(points) + "[/center]"
+	$PointsLabel.bbcode_text = "[center]" + String(points) + " [img=58]res://assets/UI/menu_shop.png[/img][/center]"
 	$Control/ScoreGauge.set_scores(score, mean, best)
 	$AnimationPlayer.play("display_game_over")
 
